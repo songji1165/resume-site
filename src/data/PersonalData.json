@@ -1,105 +1,190 @@
-[{
-        "Contacts" : {
-            "github" : "",
-            "notion" : "",
-            "blog" : "",
-            "e-mail" : "",
-            "phone"  : ""
-        },
-        "Intro" : [
-            "🙋‍♀️ 학습한 것에 대해 정리하는 것을 좋아하며, 이를 응용할 줄 아는 프론트엔드 개발자 송은지입니다.",
-            "🙋‍♀️ 개발에 관해 소통하는 것을 좋아하는 프론트엔드 개발자 송은지입니다.",
-            "🙋‍♀️ 적응력이 빠른 프론트엔드 개발자 송은집입니다."
+{       
+        "Author" : "송은지",
+        "Contacts" : [
+            {"icon":"", "title" : "Github", "link" : ""},
+            {"icon":"", "title" : "Notion", "link" : ""},
+            {"icon":"", "title" : "Blog", "link" : "https://songji1165.github.io/tags/"},
+            {"icon":"", "title" : "E-mail", "link" : "songji1165@gmail.com"},
+            {"icon":"", "title" : "Phone", "link" : ""}
         ],
-        "Info" : [
-            {
-                "careers" : [
+        "Intro" : [
+            "학습한 것에 대해 정리하는 것을 좋아하며, 이를 응용할 줄 아는 프론트엔드 개발자 송은지입니다.",
+            "개발에 관해 소통하는 것을 좋아하는 프론트엔드 개발자 송은지입니다.",
+            "적응력이 빠른 프론트엔드 개발자 송은지입니다."
+        ],
+        "Careers" : [
                     {
                         "company" : "히비스",
                         "start_date" : "2019.06",
-                        "end_date" : "2019.06",
+                        "end_date" : "2020.06",
                         "position" : "FrontEnd Developer",
-                        "summary" : ""
+                        "contents" : [
+                            {
+                                "project" : "[안경원 관리] Desktop Application",
+                                "summary" : [
+                                "신규 페이지 개발, 버전 관리 및 배포",
+                                "VAN 서비스 결제 시스템 UI 개발 및 통신 모듈 구현",
+                                "모달의 모듈화",
+                                "프로그램 코드사이닝 작업",
+                                "Electron과 Vue.js 프로젝트의 모달창 import 작업"
+                                ],
+                                "skills" : [
+                                    "Javascript", "HTML/CSS", "NW.js", "JQuery", "Vue.js", "GIT", "SQL", "AGGrid" 
+                                ]
+                            },
+                            {
+                                "project" : "[관리자 페이지] Web Application",
+                                "summary" : [
+                                "신규 페이지 개발 및 배포",
+                                "전자세금계산서 관련 모듈과 UI 개발"
+                                ],
+                                "skills" : [
+                                    "PHP(CI)", "JQuery", "SVN", "AJAX", "AGGrid"
+                                ]
+                            },
+                            {
+                                "project" : "[주문 시스템] 웹/앱 SPA",
+                                "summary" : [
+                                "기본 PHP(CI), JQuery 기반의 어플리케이션을 SpringBoot와 Vue.js SPA로 고도화 작업",
+                                "어플리케이션의 구조설계, UI구현 및 통신모듈 구현"
+                                ],
+                                "skills" : [
+                                    "Vue.js", "SpringBoot", "HTML/CSS", "GIT", "Axios", "BootStrap"
+                                ]
+                           },
+                            {
+                                "project" : "[렌즈 제공 이벤트 페이지] SPA",
+                                "summary" : [
+                                "Vue.js 기반의 SPA 개발 및 배포"],
+                                "skills" : [
+                                    "Vue.js", "HTML/CSS", "GIT"
+                                ]
+                            }
+                        ]
                     }
-                ],
-                "Education" : []
-            }
+            
         ],
         "Tech" : [
             {
                 "Lang" : "Javascript",
-                "score" : "4.5",
+                "score" : "80",
                 "summary" : "ES6에 대해 이해하고, 활용하고 있으며, 동기와 비동기, prototype 및 객체지향인 점을 이용해 객체를 활용해서 만들 수 있습니다."
             },
             {
                 "Lang" : "HTML5",
-                "score" : "5",
+                "score" : "85",
                 "summary" : "시맨틱태그와 SEO에 대해 이해하고 활용하고 있습니다."
             },
             {
                 "Lang" : "CSS3",
-                "score" : "5",
+                "score" : "85",
                 "summary" : "반응형 및 애니메이션 활용까지 표현 할 수 있습니다."
             },
             {
                 "Lang" : "Vue.js",
-                "score" : "3",
+                "score" : "65",
                 "summary" : ""
             },
             {
                 "Lang" : "React.js",
-                "score" : "2.5",
+                "score" : "50",
                 "summary" : ""
             },
             {
                 "Lang" : "Jquery",
-                "score" : "4.5",
+                "score" : "80",
                 "summary" : ""
             },
             {
                 "Lang" : "PHP",
-                "score" : "2.5",
+                "score" : "55",
                 "summary" : "PHP 라이브러리(CI)를 다를 줄 알고, PHP 코드를 해석하고 응용할 수 있습니다."
             },
             {
                 "Lang" : "Node.js",
-                "score" : "2.5",
+                "score" : "45",
                 "summary" : "express를 통해 서버를 띄울 수 있습니다."
             },
             {
                 "Lang" : "SQL",
-                "score" : "2.5",
+                "score" : "50",
                 "summary" : "select, insert, delete, update에 대해 이해하고, 이를 통해 data를 찾을 수 있습니다."
             },
             {
                 "Lang" : "Git",
-                "score" : "4",
+                "score" : "90",
                 "summary" : "Git의 개념 및 흐름에 대해 이해하고, 사용하고 있습니다. (feat/origin 저장소, commit, push, pull, branch ... )"
             },
             {
                 "Lang" : "MarkDown",
-                "score" : "4.5",
+                "score" : "90",
                 "summary" : "MarkDown을 통해 표현하고자 하는 것을 막힘없이 만들 수 있습니다."
             }   
         ],
-        "Project" : [
+        "Projects" : [
             {
-                "name": "",
-                "starat_date" : "",
-                "end_date" : "",
-                "summary" : "",
+                "name": "[안경원 관리] Desktop Application",
+                "organize" : "HEBEES",
+                "start_date" : "2019-07",
+                "end_date" : "2019-06",
+                "summary" : "안경원 관리 서비스를 데스크톱 전용 어플리케이션으로 제공",
                 "experience":"",
                 "link": "",
                 "img" : "",
                 "Detail" : [
                     {
+                        "keywords": [],
+                        "skills" : [ "Javascript", "HTML/CSS", "NW.js", "JQuery", "Vue.js", "GIT", "SQL", "AGGrid"],
+                        "result" : "",
+                        "architecture" : "",
                         "problem" : "",
                         "solution" : "",
+                        "etc" : ""
+                    }
+                ]
+            },
+            {
+                "name": "[주문 시스템] Web/App Application",
+                "organize" : "HEBEES",
+                "start_date" : "2020-04",
+                "end_date" : "2020-04",
+                "summary" : "안경원 커머스 서비스",
+                "experience":"",
+                "link": "",
+                "img" : "",
+                "Detail" : [
+                    {
+                        "keywords": [],
+                        "skills" : [],
                         "result" : "",
+                        "architecture" : "",
+                        "problem" : "",
+                        "solution" : "",
+                        "etc" : ""
+                    }
+                ]
+            },
+            {
+                "name": "[Weather Wear] Web/App Application",
+                "organize" : "개인 프로젝트",
+                "start_date" : "2019-05",
+                "end_date" : "2019-05",
+                "summary" : "위치에 따른 날씨, 기온 및 기온별 옷차림 정보를 제공",
+                "experience":"",
+                "link": "",
+                "img" : "",
+                "Detail" : [
+                    {
+                        "keywords": [],
+                        "skills" : ["Javascript", "Vues.js", "AXIOS", "OPEN API(Wheather API)", "HTML/CSS", "GIT", "Github Pages", "JSON"],
+                        "result" : "",
+                        "architecture" : "",
+                        "problem" : "",
+                        "solution" : "",
                         "etc" : ""
                     }
                 ]
             }
         ]
     
-}]
+}

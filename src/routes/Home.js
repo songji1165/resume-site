@@ -1,20 +1,19 @@
-import React from 'react';
+import React from "react";
 
-import Intro from '../components/Intro';
-import Info from '../components/Info';
-import Tech from '../components/Tech';
-import Project from '../components/Project';
+import Intro from "../components/Intro";
+import Career from "../components/Careers";
+import Tech from "../components/Tech";
+import Project from "../components/Project";
 
-function Home() {
-    // console.log(data);  
-    return  (      
-        <div>
-           <Intro></Intro>
-           <Info></Info>
-           <Tech></Tech>
-           <Project></Project>
-        </div>
-    )
+function Home({ person }) {
+  return (
+    <div>
+      <Intro intro={person.Intro}></Intro>
+      <Career careers={person.Careers}></Career>
+      <Tech tech={person.Tech}></Tech>
+      <Project projects={person.Projects}></Project>
+    </div>
+  );
 }
 
 export default Home;
