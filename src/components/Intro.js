@@ -5,8 +5,9 @@ import styled from "styled-components";
 
 const S = {
   P: styled.div`
-    padding: 15px 10px;
+    padding: 10px;
     font-size: 1.1rem;
+    line-height: 1.5rem;
   `,
 };
 

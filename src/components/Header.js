@@ -32,7 +32,6 @@ const S = {
     flex: 0 0 25%;
     max-width: 25%;
     border: 2px solid red;
-    background: skyblue;
 
     @media (max-width: 860px) {
       flex: 0 0 30%;
@@ -44,7 +43,6 @@ const S = {
     max-width: 50%;
     display: flex;
     justify-content: center;
-    background: lightpink;
 
     @media (max-width: 860px) {
       display: none;

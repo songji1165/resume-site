@@ -19,7 +19,7 @@
                         "end_date" : "2020.06",
                         "position" : "FrontEnd Developer",
                         "contents" : [
-                            {
+                            {   
                                 "project" : "[안경원 관리] Desktop Application",
                                 "summary" : [
                                 "신규 페이지 개발, 버전 관리 및 배포",
@@ -32,7 +32,7 @@
                                     "Javascript", "HTML/CSS", "NW.js", "JQuery", "Vue.js", "GIT", "SQL", "AGGrid" 
                                 ]
                             },
-                            {
+                            {   
                                 "project" : "[관리자 페이지] Web Application",
                                 "summary" : [
                                 "신규 페이지 개발 및 배포",
@@ -81,12 +81,12 @@
                 "summary" : "반응형 및 애니메이션 활용까지 표현 할 수 있습니다."
             },
             {
-                "Lang" : "Vue.js",
+                "Lang" : "Vue",
                 "score" : "65",
                 "summary" : ""
             },
             {
-                "Lang" : "React.js",
+                "Lang" : "React",
                 "score" : "50",
                 "summary" : ""
             },
@@ -101,7 +101,7 @@
                 "summary" : "PHP 라이브러리(CI)를 다를 줄 알고, PHP 코드를 해석하고 응용할 수 있습니다."
             },
             {
-                "Lang" : "Node.js",
+                "Lang" : "Node",
                 "score" : "45",
                 "summary" : "express를 통해 서버를 띄울 수 있습니다."
             },
@@ -122,7 +122,8 @@
             }   
         ],
         "Projects" : [
-            {
+            {   
+                "Icon" : "👓",
                 "name": "[안경원 관리] Desktop Application",
                 "organize" : "HEBEES",
                 "start_date" : "2019-07",
@@ -144,6 +145,7 @@
                 ]
             },
             {
+                "Icon" : "🛒",
                 "name": "[주문 시스템] Web/App Application",
                 "organize" : "HEBEES",
                 "start_date" : "2020-04",
@@ -165,6 +167,7 @@
                 ]
             },
             {
+                "Icon" : "⛅",
                 "name": "[Weather Wear] Web/App Application",
                 "organize" : "개인 프로젝트",
                 "start_date" : "2019-05",
