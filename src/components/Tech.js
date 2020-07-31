@@ -65,7 +65,7 @@ const Span = styled.span`
 `;
 
 function Tech({ tech }) {
-  console.log("TEXJ",tech);
+//   console.log("TEXJ",tech);
 
   /**
      * 
@@ -92,7 +92,7 @@ for(var i=0; i<maxIndex; i++){
           <div>
             <Ul>
               {tech.map((item, idx) => {
-                console.log("?????", imgArr);
+                // console.log("?????", imgArr);
 
                 return (
                   <Li
@@ -106,7 +106,7 @@ for(var i=0; i<maxIndex; i++){
                     score={item.score}
                     img={item.Lang}>
                         <Span>
-                        <img src={imgArr[item.Lang]} width="25" height="25" />
+                        <img src={imgArr[item.Lang]} width="25" height="25" alt={imgArr[item.Lang]}/>
                         </Span>
                         <Span size="0.8"> {item.Lang}</Span>
                       </Graph>

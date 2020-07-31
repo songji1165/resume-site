@@ -122,7 +122,7 @@ const S = {
 const NAVI_ITEMS = ["HOME", "HISTORY", "TECH", "PROJECT", "CONTACT"];
 
 function Header({ navi, author }) {
-  console.log("HEADER", navi);
+//   console.log("HEADER", navi);
 
   //스크롤 여부
   const [isScroll, setIsScroll] = useState(false);
@@ -131,7 +131,7 @@ function Header({ navi, author }) {
   const handleScroll = useCallback(() => {
     //스크롤 한 경우
     if (window.pageYOffset > 0) {
-      console.log("*************SCRPL", window.pageYOffset);
+    //   console.log("*************SCRPL", window.pageYOffset);
       setIsScroll(true);
     }
 

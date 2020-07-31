@@ -12,7 +12,7 @@ const S = {
 };
 
 function Intro({ intro }) {
-  console.log("INTRO", intro);
+//   console.log("INTRO", intro);
   return (
     <Box.Article>
       <Box.Div>

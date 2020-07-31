@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 import emailjs from "emailjs-com";
 import Box from "../styles/articleCss";
 import imgArr from "../assets";
 import styled from "styled-components";
+import useScrollFadeIn from "../hook/useScrollFadeIn";
 
 const S = {
   contactDiv: styled.div`
@@ -40,7 +41,8 @@ const S = {
   Parameter: styled.div`
     width: 80%;
     margin-bottom: 15px;
-    border: 1px solid;
+    background: ${(props) => (props.isScroll ? "skyblue" : "none")};
+    transition: 1s;
 
     @media (max-width: 860px) {
       width: 100%;
@@ -107,13 +109,40 @@ function Footer() {
       );
   }
 
+  const [isScroll, setIsScroll] = useState(false);
+
   function handleKeyDown(e) {
-    console.log("++++++++++++++++++++++", e.target.scrollHeight);
+    console.log("++TextArea HandleKeyDown", e.target.scrollHeight);
   }
 
-  function handleChange(e) {
-    alert(e.target.value);
-  }
+  const dom = useRef();
+
+  const handleScroll = useCallback(([entry]) => {
+    // const { current } = dom;
+
+    //현재 교차되고 있는지 여부 (0: 안보임, 1: 완전 다 보임)
+    if (entry.isIntersecting) {
+      setIsScroll(true);
+      console.log("scroll 교차 여부 True");
+    } else {
+      setIsScroll(false);
+      console.log("scroll 교차 여부false");
+    }
+    console.log("scroll 교차 여부 end");
+  }, []);
+
+  useEffect(() => {
+    let observer;
+    const { current } = dom;
+    console.log("!", current.style);
+
+    if (current) {
+      observer = new IntersectionObserver(handleScroll, { threshold: 0.5 });
+      observer.observe(current);
+
+      return () => observer && observer.disconnect();
+    }
+  }, [handleScroll]);
 
   return (
     <Box.Article>
@@ -124,18 +153,17 @@ function Footer() {
             <Box.HR />
             <S.H2 className="address">저에게 메일을 보낼 수 있습니다.</S.H2>
             <S.H2 className="address">songji1165@gmail.com</S.H2>
-            <form onSubmit={sendEmail}>
-              <S.Parameter>
+            <form onSubmit={sendEmail} ref={dom}>
+              <S.Parameter {...useScrollFadeIn("up", 1, 0)}>
                 <S.Label>Name</S.Label>
                 <S.Input
                   type="text"
                   name="name"
                   placeholder="성함을 입력해주세요."
                   id="inputbox"
-                  onChange={handleChange}
                 />
               </S.Parameter>
-              <S.Parameter>
+              <S.Parameter {...useScrollFadeIn("up", 1, 0.2)}>
                 <S.Label>Email</S.Label>
                 <S.Input
                   type="text"
@@ -143,7 +171,7 @@ function Footer() {
                   placeholder="보내시는 분의 이메일 주소를 입력해주세요."
                 />
               </S.Parameter>
-              <S.Parameter>
+              <S.Parameter {...useScrollFadeIn("up", 1, 0.3)}>
                 <S.Label>Phone</S.Label>
                 <S.Input
                   type="text"
@@ -151,7 +179,7 @@ function Footer() {
                   placeholder="보내시는 분의 연락처를 입력해주세요."
                 />
               </S.Parameter>
-              <S.Parameter>
+              <S.Parameter {...useScrollFadeIn("up", 1, 0.4)}>
                 <S.Label>Message</S.Label>
                 <S.Textarea
                   name="message"

@@ -79,16 +79,16 @@ const S = {
 };
 
 function Info({ careers }) {
-  console.log("경력:", careers);
+//   console.log("경력:", careers);
   const element = useRef();
-  console.log("****element", element);
+//   console.log("****element", element);
 
   //useCallback : 이미 저장되어있는 data를 다시 불러옴 (메모리 낭지 방지)
   const onScroll = useCallback(
     ([entry]) => {
       const { current } = element;
-      console.log("####", entry);
-      console.log("####", entry.isIntersecting);
+    //   console.log("####", entry);
+    //   console.log("####", entry.isIntersecting);
       if (entry.isIntersecting) {
         current.style.transitionProperty = "all";
         // current.style.transitionDration = `${duration}s`;
@@ -104,7 +104,7 @@ function Info({ careers }) {
 
   useEffect(() => {
     let observer;
-    console.log("+++++++USEEFFEDCT:", element.current);
+    // console.log("+++++++USEEFFEDCT:", element.current);
     if (element.current) {
       /*화면(뷰포트) 상에 내가 지정한 타겟 엘레멘트가 보이고 있는지에 대한 여부를 제공하느 api
           - new IntersectionObserver(callback,  option)
@@ -115,18 +115,18 @@ function Info({ careers }) {
       observer = new IntersectionObserver(onScroll, { threshold: 0.3 });
 
       observer.observe(element.current);
-      console.log("[[[[[[[[[observer]]]]]]]]]",observer)
+    //   console.log("[[[[[[[[[observer]]]]]]]]]",observer)
     }
 
     return () => observer && observer.disconnect(); //관찰 멈추기
   }, [onScroll]);
 
-  const useScrollFadeIn = (direction = "up", duration = 1, delay = 0) => {
-    return {
-      ref: element,
-      style: {},
-    };
-  };
+//   const useScrollFadeIn = (direction = "up", duration = 1, delay = 0) => {
+//     return {
+//       ref: element,
+//       style: {},
+//     };
+//   };
 
   //   const animatedItem = {
   //     0: useScrollFadeIn("up", 1, 0),

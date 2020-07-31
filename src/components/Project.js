@@ -72,7 +72,7 @@ const S = {
 };
 
 function Project({ projects }) {
-  console.log("PROHE", projects);
+//   console.log("PROHE", projects);
   function fnMakeProjectTamplete(item, idx) {
     return (
       //    <div key={idx}>

@@ -5,7 +5,7 @@ import Detail from "./routes/Detail";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Person from "./data/PersonalData.json";
-import ResetStyle from "./styles/resetCss"
+import ResetStyle from "./styles/resetCss";
 
 // import logo from './logo.svg';
 // import './App.css';
@@ -16,11 +16,11 @@ function App() {
   // console.log(Person.Contacts);
   return (
     <HashRouter>
-        <ResetStyle />
-          <Header navi={Person.Contacts} author={Person.Author}/>
-          <Route path="/" render={() => <Home person={Person} />} exact={true} />
-          <Route path="/detail/:id" component={Detail} />
-          <Footer />
+      <ResetStyle />
+      <Header navi={Person.Contacts} author={Person.Author} />
+      <Route path="/" render={() => <Home person={Person} />} exact={true} />
+      <Route path="/detail/:id" component={Detail} />
+      <Footer />
     </HashRouter>
   );
 }
