@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useRef } from "react";
+import React from "react";
 import emailjs from "emailjs-com";
 import Box from "../styles/articleCss";
 import imgArr from "../assets";
@@ -11,7 +11,6 @@ const S = {
     text-align: center;
     position: relative;
     margin: 0 auto;
-    border: 1px solid;
     padding: 20px;
 
     &:before {
@@ -109,40 +108,9 @@ function Footer() {
       );
   }
 
-  const [isScroll, setIsScroll] = useState(false);
-
   function handleKeyDown(e) {
     console.log("++TextArea HandleKeyDown", e.target.scrollHeight);
   }
-
-  const dom = useRef();
-
-  const handleScroll = useCallback(([entry]) => {
-    // const { current } = dom;
-
-    //현재 교차되고 있는지 여부 (0: 안보임, 1: 완전 다 보임)
-    if (entry.isIntersecting) {
-      setIsScroll(true);
-      console.log("scroll 교차 여부 True");
-    } else {
-      setIsScroll(false);
-      console.log("scroll 교차 여부false");
-    }
-    console.log("scroll 교차 여부 end");
-  }, []);
-
-  useEffect(() => {
-    let observer;
-    const { current } = dom;
-    console.log("!", current.style);
-
-    if (current) {
-      observer = new IntersectionObserver(handleScroll, { threshold: 0.5 });
-      observer.observe(current);
-
-      return () => observer && observer.disconnect();
-    }
-  }, [handleScroll]);
 
   return (
     <Box.Article>
@@ -153,7 +121,7 @@ function Footer() {
             <Box.HR />
             <S.H2 className="address">저에게 메일을 보낼 수 있습니다.</S.H2>
             <S.H2 className="address">songji1165@gmail.com</S.H2>
-            <form onSubmit={sendEmail} ref={dom}>
+            <form onSubmit={sendEmail}>
               <S.Parameter {...useScrollFadeIn("up", 1, 0)}>
                 <S.Label>Name</S.Label>
                 <S.Input

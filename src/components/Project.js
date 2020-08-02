@@ -2,6 +2,7 @@ import React from "react";
 import { FcOpenedFolder } from "react-icons/fc";
 import Box from "../styles/articleCss";
 import styled from "styled-components";
+import useScrollFadeIn from "../hook/useScrollFadeIn";
 
 const S = {
   ProjectWrap: styled.div`
@@ -20,6 +21,7 @@ const S = {
     width: 40%;
     height: 200px;
     border: 1px solid;
+    transition:1s;
 
     @media (max-width: 860px) {
       width: 100%;
@@ -73,21 +75,13 @@ const S = {
 
 function Project({ projects }) {
 //   console.log("PROHE", projects);
-  function fnMakeProjectTamplete(item, idx) {
-    return (
-      //    <div key={idx}>
-      //        <dl>
-      //            <dt>{item.name} <span>({item.start_date} ~ {item.end_date})</span></dt>
-      //            <dd>
-      //                <ul>
-      //                    <li>{item.organize}</li>
-      //                    <li>{item.summary}</li>
-      //                </ul>
-      //            </dd>
-      //        </dl>
 
-      //     </div>
-      <S.Project key={idx}>
+function FnMakeProjectTamplete(item, idx) {
+    const delaySec = idx*0.1;
+    const scrollFade = useScrollFadeIn("left", 1, delaySec);
+    
+    return (
+      <S.Project key={idx} {...scrollFade}>
         <S.ImgDiv>
           <S.IMG src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/22374b9f-ebd1-4ac7-8d9d-cefedb81f970/WW.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20200728%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20200728T110444Z&X-Amz-Expires=86400&X-Amz-Signature=7ce78599ca2d20968abe58cebd9f8a275c293ec50cc07753a60c919e023d2a78&X-Amz-SignedHeaders=host" />
         </S.ImgDiv>
@@ -111,7 +105,7 @@ function Project({ projects }) {
           <Box.HR />
           <S.ProjectWrap>
             {projects.map((item, idx) => {
-              return fnMakeProjectTamplete(item, idx);
+              return FnMakeProjectTamplete(item, idx);
             })}
           </S.ProjectWrap>
         </Box.DivItem>

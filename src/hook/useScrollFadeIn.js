@@ -21,7 +21,7 @@ const useScrollFadeIn = (direction = 'up', duration = 1, delay = 0) => {
 
     const handleScroll = useCallback(([entry]) => {
         const { current } = element;
-      
+        // const currentTranslate = current.style.transform;
         //현재 교차되고 있는지 여부 (0: 안 보임, 1: 완전 다 보임)
         if (entry.isIntersecting) {
             current.style.transitionProperty = 'all';
@@ -30,10 +30,7 @@ const useScrollFadeIn = (direction = 'up', duration = 1, delay = 0) => {
             current.style.transitionDelay = `${delay}s`;
             current.style.opacity = 1;
             current.style.transform = 'translate3d(0, 0, 0)';
-        } else {
-            current.style.opacity = 0;
-            current.style.transform = 'none';
-        }
+        } 
 
       },
       [delay, duration]);
@@ -44,7 +41,7 @@ const useScrollFadeIn = (direction = 'up', duration = 1, delay = 0) => {
       
         if (current) {  
            // threshold : 타겟의 교차되는 지점의 점수를 지정 => isIntersecting property 의 true, false 반환                                                             
-          observer = new IntersectionObserver(handleScroll, { threshold: 0.4 });
+          observer = new IntersectionObserver(handleScroll, { threshold: 0.5 });
           observer.observe(current);
       
           return () => observer && observer.disconnect();

@@ -3,6 +3,7 @@ import { FcBriefcase, FcNext } from "react-icons/fc";
 
 import styled from "styled-components";
 import Box from "../styles/articleCss";
+import useScrollFadeIn from "../hook/useScrollFadeIn";
 
 const FONTSIZE = {
   smaller: "0.6rem",
@@ -149,6 +150,7 @@ function Info({ careers }) {
                 key={idx}
                 ref={element}
                 delay={"0." + idx}
+                
               >
                 <div style={{'display': 'inline-block', 'textAlign': 'justify'}}> 
                 <dl>
