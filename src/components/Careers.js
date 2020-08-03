@@ -3,7 +3,7 @@ import { FcBriefcase, FcNext } from "react-icons/fc";
 
 import styled from "styled-components";
 import Box from "../styles/articleCss";
-import useScrollFadeIn from "../hook/useScrollFadeIn";
+// import useScrollFadeIn from "../hook/useScrollFadeIn";
 
 const FONTSIZE = {
   smaller: "0.6rem",

@@ -7,6 +7,7 @@ const Box = {
     display: table;
     text-algin: center;
     border:1px solid #fff;
+    overflow: hidden;
   `,
   Div: styled.div`
     display: table-cell;
@@ -14,6 +15,7 @@ const Box = {
     text-align: center;
     border:3px solid #fff;
     margin: 0 auto;
+    position:relative;
     `,
   DivItem: styled.div`
   display: inline-block;
