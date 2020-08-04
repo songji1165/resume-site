@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-08-04T02:24:55.929Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36" etag="THUxbm9hyMwGbydC5DmF" version="13.5.9" type="github">
+<mxfile host="app.diagrams.net" modified="2020-08-04T03:38:42.400Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36" etag="5QLG_zX5j5VYp4T8VjFr" version="13.5.9" type="github">
   <diagram name="Page-1" id="b98fa263-6416-c6ec-5b7d-78bf54ef71d0">
-    <mxGraphModel dx="1200" dy="670" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+    <mxGraphModel dx="1286" dy="586" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" math="0" shadow="0">
       <root>
         <mxCell id="0" style=";html=1;" />
         <mxCell id="1" style=";html=1;" parent="0" />
@@ -70,8 +70,8 @@
             <mxPoint x="820" y="180" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PQalOrdLOvbTS2Mo1HRE-21" value="&lt;b&gt;������ TYPE별 화면 구성&lt;/b&gt;&lt;br&gt;1. 판매 타입 (판매, 납부, 반품)&lt;br&gt;2. 결제 타입 (신용카드, 현금영수증)&lt;br&gt;3. 재결재 가능여부" style="text;html=1;fillColor=#fff2cc;align=left;verticalAlign=middle;whiteSpace=wrap;strokeColor=#d6b656;rounded=1;sketch=1;" vertex="1" parent="1">
-          <mxGeometry x="1000" y="265" width="200" height="80" as="geometry" />
+        <mxCell id="PQalOrdLOvbTS2Mo1HRE-21" value="&lt;b&gt;������ TYPE별 화면 구성&lt;/b&gt;&lt;br&gt;&amp;nbsp;1. 판매 타입 (판매, 납부, 반품)&lt;br&gt;&amp;nbsp;2. 결제 타입 (신용카드, 현금영수증)&lt;br&gt;&amp;nbsp;3. 재결재 가능여부" style="text;html=1;fillColor=#fff2cc;align=left;verticalAlign=middle;whiteSpace=wrap;strokeColor=#d6b656;rounded=1;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="250" width="200" height="80" as="geometry" />
         </mxCell>
         <mxCell id="PQalOrdLOvbTS2Mo1HRE-22" value="" style="endArrow=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;dashed=1;endFill=0;sketch=1;" edge="1" parent="1" source="PQalOrdLOvbTS2Mo1HRE-15">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -309,6 +309,9 @@
             <mxPoint x="800" y="450" as="sourcePoint" />
             <mxPoint x="741" y="390" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="s-0dosAZXvTLZat8BHDN-1" value="&lt;b&gt;������ 단말기 기기별 &lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;파라미터 준비&lt;/b&gt;&lt;br&gt;&amp;nbsp;1. KCP&lt;br&gt;&amp;nbsp;2. NICE&lt;br&gt;&amp;nbsp;3. KICC" style="text;html=1;fillColor=#fff2cc;align=left;verticalAlign=middle;whiteSpace=wrap;strokeColor=#d6b656;rounded=1;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="376" width="101" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
