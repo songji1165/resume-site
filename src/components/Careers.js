@@ -1,8 +1,10 @@
 import React, { useRef, useEffect, useCallback } from "react";
-import { FcBriefcase, FcNext } from "react-icons/fc";
+import { AiFillCaretRight } from "react-icons/ai";
+import { BsFillBriefcaseFill } from "react-icons/bs";
 
 import styled from "styled-components";
 import Box from "../styles/articleCss";
+import Button from "../styles/buttonCss";
 // import useScrollFadeIn from "../hook/useScrollFadeIn";
 
 const FONTSIZE = {
@@ -18,8 +20,6 @@ const S = {
   CareerWrap: styled.div`
     margin: 15px auto;
     padding: 15px 5px 5px;
-    border-radius: 5px;
-    box-shadow: 3px 5px 15px #888888;
     transition: 1s;
     opacity: 0,
     transform: translate3d(0, 50%, 0);
@@ -39,6 +39,7 @@ const S = {
   BriefDiv: styled.div`
     flex: 0 0 25%;
     max-width: 25%;
+    margin-right: 5%;
     @media (max-width: 860px) {
       flex: 0 0 100%;
       max-width: 100%;
@@ -53,10 +54,14 @@ const S = {
       padding: 10px;
     }
   `,
+  Dl: styled.dl`
+    padding: 5px 0;
+  `,
   Dt: styled.dt`
-    font-weight: 900;
+    font-weight: 500;
     font-size: ${(props) =>
       props.size ? FONTSIZE[props.size] : FONTSIZE.normal};
+    line-height: 2rem;
   `,
   Dd: styled.dd`
     padding: 5px 10px;
@@ -64,9 +69,11 @@ const S = {
   Li: styled.li`
     padding: 3px 0;
     color: ${(props) => (props.color ? props.color : "#333")};
-    font-weight: ${(props) => (props.bold ? 600 : "normal")};
+    font-weight: ${(props) => (props.bold ? 500 : "normal")};
+    font-style: ${(props) => (props.italic ? "oblique" : "normal")};
     font-size: ${(props) =>
       props.size ? FONTSIZE[props.size] : FONTSIZE.normal};
+    line-height: 1rem;
   `,
   Button: styled.button`
     margin: 5px 2px;
@@ -79,17 +86,17 @@ const S = {
   `,
 };
 
-function Info({ careers }) {
-//   console.log("경력:", careers);
+function Info({ careers, refProp }) {
+  //   console.log("경력:", careers);
   const element = useRef();
-//   console.log("****element", element);
+  //   console.log("****element", element);
 
   //useCallback : 이미 저장되어있는 data를 다시 불러옴 (메모리 낭지 방지)
   const onScroll = useCallback(
     ([entry]) => {
       const { current } = element;
-    //   console.log("####", entry);
-    //   console.log("####", entry.isIntersecting);
+      //   console.log("####", entry);
+      //   console.log("####", entry.isIntersecting);
       if (entry.isIntersecting) {
         current.style.transitionProperty = "all";
         // current.style.transitionDration = `${duration}s`;
@@ -116,18 +123,18 @@ function Info({ careers }) {
       observer = new IntersectionObserver(onScroll, { threshold: 0.3 });
 
       observer.observe(element.current);
-    //   console.log("[[[[[[[[[observer]]]]]]]]]",observer)
+      //   console.log("[[[[[[[[[observer]]]]]]]]]",observer)
     }
 
     return () => observer && observer.disconnect(); //관찰 멈추기
   }, [onScroll]);
 
-//   const useScrollFadeIn = (direction = "up", duration = 1, delay = 0) => {
-//     return {
-//       ref: element,
-//       style: {},
-//     };
-//   };
+  //   const useScrollFadeIn = (direction = "up", duration = 1, delay = 0) => {
+  //     return {
+  //       ref: element,
+  //       style: {},
+  //     };
+  //   };
 
   //   const animatedItem = {
   //     0: useScrollFadeIn("up", 1, 0),
@@ -136,76 +143,83 @@ function Info({ careers }) {
   //   };
 
   return (
-    <Box.Article>
-      <Box.Div>
-        <Box.DivItem>
-          <Box.Label>
-            <FcBriefcase /> 경력사항
-          </Box.Label>
-          <Box.HR />
-          {careers.map((item, idx) => {
-            return (
-              <S.CareerWrap
-                className="careers_wrap"
-                key={idx}
-                ref={element}
-                delay={"0." + idx}
-                
-              >
-                <div style={{'display': 'inline-block', 'textAlign': 'justify'}}> 
-                <dl>
-                  <S.Dt size="large"> {item.company}</S.Dt>
-                  <S.Dd className="flexWrap">
-                    <S.DetailWrap>
-                      <S.BriefDiv>
-                        <ul>
-                          <S.Li bold="true">{item.position}</S.Li>
-                          <S.Li color="gray">
-                            {item.start_date} ~ {item.end_date}
-                          </S.Li>
-                        </ul>
-                      </S.BriefDiv>
-                      <S.ProjectDiv>
-                        {item.contents.map((content, index) => {
-                          return (
-                            <dl key={index}>
-                              <S.Dt size="normal">{content.project}</S.Dt>
-                              <S.Dd>
-                                <ul>
-                                  {content.summary.map((list, index) => {
-                                    return (
-                                      <S.Li key={index} size="small" >
-                                        <FcNext style={{"fontSize":"10px"}}/>{list}
-                                      </S.Li>
-                                    );
-                                  })}
-                                </ul>
-                                {content.skills.map((skill, index) => {
-                                  return (
-                                    <S.Button
-                                      button="lightcoral"
-                                      size="small"
-                                      key={index}
-                                    >
-                                      {skill}
-                                    </S.Button>
-                                  );
-                                })}
-                              </S.Dd>
-                            </dl>
-                          );
-                        })}
-                      </S.ProjectDiv>
-                    </S.DetailWrap>
-                  </S.Dd>
-                </dl>
-                </div>
-              </S.CareerWrap>
-            );
-          })}
-        </Box.DivItem>
-      </Box.Div>
-    </Box.Article>
+    <div ref={refProp.ref}>
+      <Box.Article>
+        <Box.Div>
+          <Box.DivItem>
+            <Box.Label> CAREERS</Box.Label>
+            <Box.HR />
+            {careers.map((item, idx) => {
+              return (
+                <S.CareerWrap
+                  className="careers_wrap"
+                  key={idx}
+                  ref={element}
+                  delay={"0." + idx}
+                >
+                  <div
+                    style={{ display: "inline-block", textAlign: "justify" }}
+                  >
+                    <dl>
+                      <S.Dt size="large">
+                        <BsFillBriefcaseFill />&nbsp; {item.company}
+                      </S.Dt>
+                      <S.Dd className="flexWrap">
+                        <S.DetailWrap>
+                          <S.BriefDiv>
+                            <ul>
+                              <S.Li italic="true" color="#939598">
+                                {item.position}
+                              </S.Li>
+                              <S.Li>
+                                {item.start_date} ~ {item.end_date}
+                              </S.Li>
+                            </ul>
+                          </S.BriefDiv>
+                          <S.ProjectDiv>
+                            {item.contents.map((content, index) => {
+                              return (
+                                <S.Dl key={index}>
+                                  <S.Dt size="normal"> {content.project}</S.Dt>
+                                  <S.Dd>
+                                    <ul>
+                                      {content.summary.map((list, index) => {
+                                        return (
+                                          <S.Li key={index} size="small">
+                                            <AiFillCaretRight
+                                              style={{
+                                                fontSize: "10px",
+                                                paddingRight: "3px",
+                                              }}
+                                            />
+                                            {list}
+                                          </S.Li>
+                                        );
+                                      })}
+                                    </ul>
+                                    {content.skills.map((skill, index) => {
+                                      return (
+                                        <Button size="small" key={index}>
+                                          {skill}
+                                        </Button>
+                                      );
+                                    })}
+                                  </S.Dd>
+                                </S.Dl>
+                              );
+                            })}
+                          </S.ProjectDiv>
+                        </S.DetailWrap>
+                      </S.Dd>
+                    </dl>
+                  </div>
+                </S.CareerWrap>
+              );
+            })}
+          </Box.DivItem>
+        </Box.Div>
+      </Box.Article>
+    </div>
   );
 }
 

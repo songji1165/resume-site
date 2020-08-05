@@ -1,34 +1,69 @@
-import { css, createGlobalStyle } from 'styled-components'
+import { css, createGlobalStyle } from "styled-components";
+
+import NotoSansKRRegular from "./fonts/NotoSansKR/NotoSansKR-Regular.otf";
+import NotoSansKRRegularwoff from "./fonts/NotoSansKR/NotoSansKR-Regular.woff";
+import NotoSansKRRegularwoff2 from "./fonts/NotoSansKR/NotoSansKR-Regular.woff2";
+
+import NotoSansKRLight from "./fonts/NotoSansKR/NotoSansKR-Light.otf";
+import NotoSansKRLightwoff from "./fonts/NotoSansKR/NotoSansKR-Light.woff";
+import NotoSansKRLightwoff2 from "./fonts/NotoSansKR/NotoSansKR-Light.woff2";
+
+import NotoSansKRMedium from "./fonts/NotoSansKR/NotoSansKR-Medium.otf";
+import NotoSansKRMediumwoff from "./fonts/NotoSansKR/NotoSansKR-Medium.woff";
+import NotoSansKRMediumwoff2 from "./fonts/NotoSansKR/NotoSansKR-Medium.woff2";
+
+import NotoSansKRBold from "./fonts/NotoSansKR/NotoSansKR-Bold.otf";
+import NotoSansKRBoldwoff from "./fonts/NotoSansKR/NotoSansKR-Bold.woff";
+import NotoSansKRBoldwoff2 from "./fonts/NotoSansKR/NotoSansKR-Bold.woff2";
+
+import Lora from "./fonts/Lora/static/Lora-Regular.ttf";
+import LoraVari from "./fonts/Lora/Lora-VariableFont_wght.ttf";
 
 // prettier-ignore
 export const reset = css`
 @font-face { 
   font-family: 'SansKR'; 
-  src:url('/fonts/NotoSansKR-Regular.otf');
-  src: url('/fonts/NotoSansKR-Regular.woff') format(‘woff’), 
-    url('/fonts/NotoSansKR-Regular.woff2') format(‘woff’), 
-    url('/fonts/NotoSansKR-Regular.ttf') format('truetype');
+  src:url(${NotoSansKRRegular});
+  src: url(${NotoSansKRRegularwoff}) format(‘woff’), 
+    url(${NotoSansKRRegularwoff2}) format(‘woff’);
   font-weight: normal;  
   font-style: normal;
+  font-size: 10px;
 }
 @font-face { 
   font-family: 'SansKR'; 
-  src:url('/fonts/NotoSansKR-Medium.otf');
-  src: url('/fonts/NotoSansKR-Medium.woff') format(‘woff’), 
-    url('/fonts/NotoSansKR-Medium.woff2') format(‘woff’), 
-    url('/fonts/NotoSansKR-Medium.ttf') format('truetype');;
+  src:url(${NotoSansKRLight});
+  src: url(${NotoSansKRLightwoff}) format(‘woff’), 
+    url(${NotoSansKRLightwoff2}) format(‘woff’);
+  font-weight: 300;  
+  font-style: normal;
+  font-size: 10px;
+}
+@font-face { 
+  font-family: 'SansKR'; 
+  src:url(${NotoSansKRMedium});
+  src: url(${NotoSansKRMediumwoff}) format(‘woff’), 
+    url(${NotoSansKRMediumwoff2}) format(‘woff’);
   font-weight: 500; 
   font-style: normal;  
 }
 @font-face { 
   font-family: 'SansKR'; 
-  src:url('/fonts/NotoSansKR-Bold.otf');
-  src: url('/fonts/NotoSansKR-Bold.woff') format(‘woff’), 
-    url('/fonts/NotoSansKR-Bold.woff2') format(‘woff’), 
-    url('/fonts/NotoSansKR-Bold.ttf') format('truetype');
+  src:url(${NotoSansKRBold});
+  src: url(${NotoSansKRBoldwoff}) format(‘woff’), 
+    url(${NotoSansKRBoldwoff2}) format(‘woff’);
   font-weight: bold;   
   font-style: normal;
 }
+@font-face { 
+  font-family: 'Lora', serif; 
+  src:url(${Lora})  format('truetype');
+  src:url(${LoraVari})  format('truetype');
+  font-weight: normal;  
+  font-style: normal;
+  font-size: 10px;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -41,11 +76,10 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 main, menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, input, textarea {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
   vertical-align: baseline;
   box-sizing: border-box;
@@ -62,6 +96,13 @@ footer, header, hgroup, main, menu, nav, section {
 body {
   line-height: 1;
   font-family: 'SansKR'; 
+  font-size : 14px;
+  background : #fefefe;
+  color: #333;
+
+  @media (max-width: 860px) {
+    font-size : 13px;
+  }
 }
 ol, ul {
   list-style: none;
@@ -101,4 +142,4 @@ button {
 }
 `
 
-export default createGlobalStyle`${reset}`
+export default createGlobalStyle`${reset}`;

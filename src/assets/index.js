@@ -1,3 +1,4 @@
+//Tech
 import Javascript from './img/Javascript.png';
 import HTML5 from './img/HTML5.png';
 import CSS3 from './img/CSS3.png';
@@ -9,8 +10,16 @@ import PHP from './img/PHP.png';
 import SQL from './img/SQL.png';
 import Git from './img/Git.png';
 import MarkDown from './img/MarkDown.png';
+
+//UserEmoji
 import EunjiEmoji1 from './img/eunji1.png';
 import EunjiEmoji2 from './img/eunji2.png';
+import background from './img/background.jpg';
+
+//project
+import retina from './img/retina.png';
+import WW from './img/WW.gif';
+import order from './img/retinaOrder.png';
 
 const imgArr = {
     Javascript,
@@ -25,7 +34,11 @@ const imgArr = {
     Git,
     MarkDown,
     EunjiEmoji1,
-    EunjiEmoji2
+    EunjiEmoji2,
+    background,
+    retina,
+    WW,
+    order
 };
 
 export default imgArr;

@@ -1,5 +1,9 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 import styled from "styled-components";
+// import Button from "../styles/buttonCss";
+import { FaBlogger, FaGithub } from "react-icons/fa";
+import { AiOutlineIdcard } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const S = {
   Wrapper: styled.div`
@@ -8,51 +12,68 @@ const S = {
     top: 0;
     z-index: 1000;
     transition: all 0.2s ease-in-out;
-    background-color: ${(props) => (props.isScroll ? "white" : "#f1f1f1")};
+    background-color: ${(props) => (props.isScroll ? "#fff" : "none")};
     box-shadow: ${(props) =>
-      props.isScroll ? "0 0 16px 8px rgba(0, 0, 0, 0.04)" : "none"};
+      props.isScroll ? "0 0 3px 3px rgba(0, 0, 0, 0.2)" : "none"};
   `,
   Header: styled.header`
     width: 100%;
     max-width: 1180px;
     margin: 0 auto;
     transition: all 0.2s ease-in-out;
-    height: ${(props) => (props.isScroll ? "70px" : "100px")};
-    display: flex;
-    fles-direction: row;
-    align-items: center;
-  `,
-  Logo: styled.div`
-    color: ${(props) => (props.isScroll ? "red" : "white")};
-    font-weight: 900;
-    font-size: 1.5rem;
-    flex: 0 0 25%;
-    max-width: 25%;
+    height: ${(props) => (props.isScroll ? "60px" : "100px")};
 
     @media (max-width: 860px) {
-      flex: 0 0 30%;
-      max-width: 30%;
+      position: relative;
+      background: #414042;
+      height: 50px;
     }
   `,
   Navigation: styled.div`
-    flex: 0 0 50%;
     max-width: 50%;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
 
     @media (max-width: 860px) {
-      display: none;
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      box-shadow: 3px 10px 9px -9px rgba(0, 0, 0, 0.4);
+      background: #fff;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      height: ${(props) => (props.isOpenMenu ? "auto" : 0)};
+      overflow:hidden;
     }
   `,
   NavigationItem: styled.a`
-        color: ${(props) => (props.isScroll ? "black" : "white")},
-        margin: 0 5rem;
-        padding : 0 1rem;
-        cursor : pointer;
-        &:hover {
-            opacity : 0.5;
-        }
-    `,
+    color: #000;
+    font-size: ${(props) => (props.isScroll ? "14px" : "16px")};
+    font-weight: 400;
+    margin: 0 1rem;
+    padding: 0 1rem;
+    cursor: pointer;
+    transition: all 500ms;
+    line-height: ${(props) => (props.isScroll ? "60px" : "100px")};
+    &:hover {
+      opacity: 0.5;
+    }
+
+    @media (max-width: 860px) {
+      display: block;
+      max-width: 100%;
+      margin: -1px 0;
+      line-height: 50px !important;
+      padding: 0 1rem;
+      text-align: left;
+      background: #414042;
+      color: #fff;
+      font-size: 14px !important;
+      font-weight: 300;
+    }
+  `,
   LinkWrapper: styled.div`
     flex: 0 0 25%;
     max-width: 25%;
@@ -66,91 +87,100 @@ const S = {
     }
   `,
   LinkItem: styled.a`
-        color: ${(props) => (props.isScroll ? "black" : "white")},
-        margin: 0 1rem;
-        padding : 0 1rem;
-        cursor : pointer;
-        &:hover {
-            opacity : 0.5;
-        }
-
-        @media (max-width: 860px) {
-          
-         }
-    `,
+    margin: 0 1rem;
+    padding: 0 1rem;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.5;
+    }
+    color: #000;
+  `,
+  MenuBar: styled.div`
+    width: 100%;
+    text-align: right;
+    font-size: 2.5rem;
+    line-height: 50px;
+    padding: 0 1rem;
+    color: #fff;
+  `,
 };
 
-const NAVI_ITEMS = ["HOME", "HISTORY", "TECH", "PROJECT", "CONTACT"];
+function Header({ navi, author, sections }) {
+  const handleNavigate = (section) => {
+    if (section) {
+      let el = section.ref.current;
 
-function Header({ navi, author }) {
-//   console.log("HEADER", navi);
-// const refs = list.reduce((acc, value) => {
-//   acc[value.id] = ReactcreateRef();
-//   return acc;
-// }, {});
+      window.scrollTo({
+        behavior: "smooth",
+        left: 0,
+        top: el.offsetTop,
+      });
 
-// const handleClick = id =>
-//   refs[id].current.scrollIntoView({
-//     behavior: 'smooth',
-//     block: 'start',
-//   });  
-
-
+      setIsOpenMenu(false);
+    }
+  };
+  
+  const eleMenu = useRef();
   //스크롤 여부
   const [isScroll, setIsScroll] = useState(false);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   //스크롤 여부 판단(중복되는 값을 메모리에 저장하여, 속도 최적화함)
-  const handleScroll = useCallback(() => {
+  const handleScroll = useCallback((event) => {
+    // console.log(event);
     //스크롤 한 경우
-    if (window.pageYOffset > 50) {
-    //   console.log("*************SCRPL", window.pageYOffset);
+    if (window.pageYOffset > 100) {
       setIsScroll(true);
+    } else {
+      setIsScroll(false);
     }
-    
-    //스크롤 안 한 경우
-    if (window.pageYOffset === 0) {
-        console.log("스크롤 0이다");
-        setIsScroll(false);
-    }
-}, []);
+  }, []);
+
+  const handleClickMenu = (event) => {
+    const changeMenu = !isOpenMenu
+    setIsOpenMenu(changeMenu);
+  };
 
   //Like [componentDidMount + componentDidUpdate + componentWillUpdate]
   useEffect(() => {
-    window.addEventListener("mousewheel", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    // const current = eleMenu;
+    // if(eleMenu.current){
+    //   eleMenu.current.addEventListener("click", handleClickMenu);
+
+    //   return eleMenu.current.removeEventListener("click", handleClickMenu);
+    // }
 
     //정리가 필요한 Effects는 메모리 누수 발생을 예방하기 위해 제거!
     return () => {
-      window.removeEventListener("mousewheel", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [handleScroll]);
 
   return (
     <S.Wrapper isScroll={isScroll}>
       <S.Header isScroll={isScroll}>
-        <S.Logo isScroll={isScroll}>{author}</S.Logo>
-        <S.Navigation>
-          {NAVI_ITEMS.map((item, idx) => (
-            <S.NavigationItem key={idx} isScroll={isScroll}>
-              {item}
+        <S.Navigation isOpenMenu={isOpenMenu}>
+          {sections.map((item, idx) => (
+            <S.NavigationItem
+              key={idx}
+              isScroll={isScroll}
+              onClick={() => handleNavigate(item)}
+            >
+              {item.name}
             </S.NavigationItem>
           ))}
         </S.Navigation>
-        <S.LinkWrapper>
-          {navi.map((item, idx) => {
-            if (item.link) {
-              return (
-                <S.LinkItem key={idx} isScroll={isScroll} href={item.link} target="_blank">
-                  {item.title}
-                </S.LinkItem>
-              );
-            } else {
-              return ''
-            }
-          })}
-        </S.LinkWrapper>
+        <S.MenuBar>
+          <span ref={eleMenu} onClick={handleClickMenu} >
+            <GiHamburgerMenu className="bar" style={{height:"50px"}}/>
+          </span>
+        </S.MenuBar>
       </S.Header>
     </S.Wrapper>
   );
 }
 
 export default Header;
+/*
+ */

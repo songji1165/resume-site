@@ -3,6 +3,7 @@ import { FcOpenedFolder } from "react-icons/fc";
 import Box from "../styles/articleCss";
 import styled from "styled-components";
 import useScrollFadeIn from "../hook/useScrollFadeIn";
+import imgArr from "../assets";
 
 const S = {
   ProjectWrap: styled.div`
@@ -11,22 +12,55 @@ const S = {
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     @media (max-width: 860px) {
       justify-content: center;
     }
   `,
   Project: styled.div`
-    margin: 15px;
-    width: 40%;
-    height: 200px;
-    border: 1px solid;
+    margin: 5px 2px;
+    max-width: 40%;
+    height: 300px;
+    border-radius: 5px;
     transition:1s;
+    flex: 0 0 48%;
+    cursor: pointer;
 
     @media (max-width: 860px) {
-      width: 100%;
+      max-width: 100%;
       margin: 15px 0;
       height: 250px;
+      flex: 0 0 85%;
+    }
+
+    &:hover .moreWrap:after {
+      position: absolute;
+      content: "More About";
+      display: block;
+      width:100%;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      z-index: 110;
+      transition: 0.2s;
+      color:#fff;
+      font-size:1.5rem;
+      font-weight: 500;
+      text-align:center;
+    }
+
+    &:hover .moreWrap:before {
+      position: absolute;
+      content: "";
+      display: block;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #333;
+      opacity: 0.3;
+      z-index: 100;
+      transition: 0.2s;
     }
   `,
   ImgDiv: styled.div`
@@ -35,31 +69,15 @@ const S = {
     text-align: center;
     position: relative;
 
-    &:after {
-      position: absolute;
-      content: "";
-      display: block;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #d9d9d9;
-      opacity: 0.5;
-      z-index: 100;
-      transition: 0.2s;
-    }
-
-    &:hover:after {
-      opacity: 0;
-    }
+    
   `,
   SummaryDiv: styled.div`
     width: 100%;
-    border-top: 1px solid #d9d9d9;
-    padding: 2px 5px;
+    padding: 3%;
   `,
   IMG: styled.img`
     height: 100%;
+    width:100%;
   `,
   Title: styled.div`
     font-weight: 600;
@@ -69,11 +87,13 @@ const S = {
   `,
   ExplanDiv: styled.div`
     font-size: 0.8rem;
-    padding-left: 10px;
+    padding: 2%;
+    font-weight: 300;
+    line-height:0.9rem;
   `,
 };
 
-function Project({ projects }) {
+function Project({ projects, refProp }) {
 //   console.log("PROHE", projects);
 
 function FnMakeProjectTamplete(item, idx) {
@@ -82,8 +102,8 @@ function FnMakeProjectTamplete(item, idx) {
     
     return (
       <S.Project key={idx} {...scrollFade}>
-        <S.ImgDiv>
-          <S.IMG src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/22374b9f-ebd1-4ac7-8d9d-cefedb81f970/WW.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20200728%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20200728T110444Z&X-Amz-Expires=86400&X-Amz-Signature=7ce78599ca2d20968abe58cebd9f8a275c293ec50cc07753a60c919e023d2a78&X-Amz-SignedHeaders=host" />
+        <S.ImgDiv className="moreWrap">
+          <S.IMG src={imgArr[item.img]} />
         </S.ImgDiv>
         <S.SummaryDiv>
           <S.Title>
@@ -96,12 +116,11 @@ function FnMakeProjectTamplete(item, idx) {
   }
 
   return (
-    <Box.Article>
+    <div ref={refProp.ref}>
+    <Box.Article theme="#f4f4f4">
       <Box.Div>
         <Box.DivItem>
-          <Box.Label>
-            <FcOpenedFolder /> project
-          </Box.Label>
+          <Box.Label>PROJECT</Box.Label>
           <Box.HR />
           <S.ProjectWrap>
             {projects.map((item, idx) => {
@@ -111,6 +130,7 @@ function FnMakeProjectTamplete(item, idx) {
         </Box.DivItem>
       </Box.Div>
     </Box.Article>
+    </div>
   );
 }
 

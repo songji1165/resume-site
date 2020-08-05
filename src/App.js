@@ -1,9 +1,9 @@
-import React from "react";
+import React, {createRef} from "react";
 import { HashRouter, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import Person from "./data/PersonalData.json";
 import ResetStyle from "./styles/resetCss";
 
@@ -11,16 +11,35 @@ import ResetStyle from "./styles/resetCss";
 // import './App.css';
 
 function App() {
-  // const personData = Person;
-  // console.log(Person);
-  // console.log(Person.Contacts);
+ 
+  const sections = [
+    {
+      name : "HOME",
+      ref : createRef() 
+    },
+    {
+      name : "TECH",
+      ref : createRef()
+    },
+    {
+      name : "CAREERS",
+      ref : createRef()
+    },
+    {
+      name : "PROJECT",
+      ref : createRef()
+    },
+    {
+      name : "CONTACT",
+      ref : createRef()
+    }];
+
   return (
     <HashRouter>
       <ResetStyle />
-      <Header navi={Person.Contacts} author={Person.Author} />
-      <Route path="/" render={() => <Home person={Person} />} exact={true} />
+      <Header navi={Person.Contacts} author={Person.Author} sections={sections}/>
+      <Route path="/" render={() => <Home person={Person} scrollTo={sections} />} exact={true} />
       <Route path="/detail/:id" component={Detail} />
-      <Footer />
     </HashRouter>
   );
 }

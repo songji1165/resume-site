@@ -21,7 +21,7 @@ const S = {
     height: 25px;
     margin: 8px 0;
     flex: 0 0 48%;
-    background: #f9f9f9;
+    background: #ffffffa8;
     position: relative;
 
     @media (max-width: 860px) {
@@ -41,10 +41,8 @@ const S = {
     overflow: hidden;
     transition: 1s;
     perspective: 100px;
-    background: #f49842;
-    box-shadow: 1px -1px #d88a41, 2px -2px #d88a41, 3px -3px #d88a41,
-      4px -4px #d88a41, 5px -5px #d88a41, 6px -6px #d88a41, 7px -7px #d88a41,
-      8px -8px #d88a41, 9px -9px #d88a41, 10px -10px #d88a41;
+    background: #eaa2a2;
+    box-shadow:1px -1px #cb817a42, 2px -2px #cb817a42, 3px -3px #cb817a42, 4px -4px #cb817a42, 5px -5px #cb817a42, 6px -6px #cb817a42, 7px -7px #cb817a42, 8px -8px #cb817a42;
   `,
   Span: styled.span`
     line-height: 25px;
@@ -54,10 +52,11 @@ const S = {
     margin: 0 8px;
     font-size: ${(props) => (props.size ? props.size + "rem" : "1rem")};
     float: ${(props) => (props.float ? props.float : "none")};
+    color: #fff;
   `,
 };
 
-function Tech({ tech }) {
+function Tech({ tech, refProp }) {
   // const element = useRef();
   // const [count, setCount] = useState(0);
 
@@ -120,11 +119,12 @@ function Tech({ tech }) {
         )
     }
   return (
-    <Box.Article>
+    <div ref={refProp.ref}>
+    <Box.Article theme="#f4f4f4">
       <Box.Div>
         <Box.DivItem>
           <Box.Label>
-            <FcSettings /> 기술능력
+             TECH
           </Box.Label>
           <Box.HR />
           <div>
@@ -135,6 +135,7 @@ function Tech({ tech }) {
         </Box.DivItem>
       </Box.Div>
     </Box.Article>
+    </div>
   );
 }
 
