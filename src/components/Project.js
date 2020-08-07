@@ -1,5 +1,4 @@
 import React from "react";
-import { FcOpenedFolder } from "react-icons/fc";
 import Box from "../styles/articleCss";
 import styled from "styled-components";
 import useScrollFadeIn from "../hook/useScrollFadeIn";
@@ -22,7 +21,7 @@ const S = {
     max-width: 40%;
     height: 300px;
     border-radius: 5px;
-    transition:1s;
+    transition: 1s;
     flex: 0 0 48%;
     cursor: pointer;
 
@@ -37,16 +36,16 @@ const S = {
       position: absolute;
       content: "More About";
       display: block;
-      width:100%;
+      width: 100%;
       top: 50%;
       transform: translateY(-50%);
       left: 0;
       z-index: 110;
       transition: 0.2s;
-      color:#fff;
-      font-size:1.5rem;
+      color: #fff;
+      font-size: 1.5rem;
       font-weight: 500;
-      text-align:center;
+      text-align: center;
     }
 
     &:hover .moreWrap:before {
@@ -68,8 +67,6 @@ const S = {
     width: 100%;
     text-align: center;
     position: relative;
-
-    
   `,
   SummaryDiv: styled.div`
     width: 100%;
@@ -77,7 +74,7 @@ const S = {
   `,
   IMG: styled.img`
     height: 100%;
-    width:100%;
+    width: 100%;
   `,
   Title: styled.div`
     font-weight: 600;
@@ -89,47 +86,47 @@ const S = {
     font-size: 0.8rem;
     padding: 2%;
     font-weight: 300;
-    line-height:0.9rem;
+    line-height: 0.9rem;
   `,
 };
 
 function Project({ projects, refProp }) {
-//   console.log("PROHE", projects);
-
-function FnMakeProjectTamplete(item, idx) {
-    const delaySec = idx*0.1;
+  const FnMakeProjectTamplete = (item, idx) => {
+    const delaySec = idx * 0.1;
     const scrollFade = useScrollFadeIn("left", 1, delaySec);
-    
+
     return (
       <S.Project key={idx} {...scrollFade}>
-        <S.ImgDiv className="moreWrap">
-          <S.IMG src={imgArr[item.img]} />
-        </S.ImgDiv>
-        <S.SummaryDiv>
-          <S.Title>
-            {item.Icon} {item.name}
-          </S.Title>
-          <S.ExplanDiv> {item.summary}</S.ExplanDiv>
-        </S.SummaryDiv>
+        <a href={item.link} target="_blank">
+          <S.ImgDiv className="moreWrap">
+            <S.IMG src={imgArr[item.img]} />
+          </S.ImgDiv>
+          <S.SummaryDiv>
+            <S.Title>
+              {item.Icon} {item.name}
+            </S.Title>
+            <S.ExplanDiv> {item.summary}</S.ExplanDiv>
+          </S.SummaryDiv>
+        </a>
       </S.Project>
     );
-  }
+  };
 
   return (
     <div ref={refProp.ref}>
-    <Box.Article theme="#f4f4f4">
-      <Box.Div>
-        <Box.DivItem>
-          <Box.Label>PROJECT</Box.Label>
-          <Box.HR />
-          <S.ProjectWrap>
-            {projects.map((item, idx) => {
-              return FnMakeProjectTamplete(item, idx);
-            })}
-          </S.ProjectWrap>
-        </Box.DivItem>
-      </Box.Div>
-    </Box.Article>
+      <Box.Article theme="#f4f4f4">
+        <Box.Div>
+          <Box.DivItem>
+            <Box.Label>PROJECT</Box.Label>
+            <Box.HR />
+            <S.ProjectWrap>
+              {projects.map((item, idx) => {
+                return FnMakeProjectTamplete(item, idx);
+              })}
+            </S.ProjectWrap>
+          </Box.DivItem>
+        </Box.Div>
+      </Box.Article>
     </div>
   );
 }

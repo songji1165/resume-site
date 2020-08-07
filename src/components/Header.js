@@ -1,8 +1,5 @@
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import styled from "styled-components";
-// import Button from "../styles/buttonCss";
-import { FaBlogger, FaGithub } from "react-icons/fa";
-import { AiOutlineIdcard } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const S = {
@@ -44,8 +41,9 @@ const S = {
       position: absolute;
       top: 50px;
       left: 0;
-      height: ${(props) => (props.isOpenMenu ? "auto" : 0)};
-      overflow:hidden;
+      height: ${(props) => (props.isOpenMenu ? "245px" : 0)};
+      transition: all 0.5s;
+      overflow: hidden;
     }
   `,
   NavigationItem: styled.a`
@@ -102,6 +100,14 @@ const S = {
     line-height: 50px;
     padding: 0 1rem;
     color: #fff;
+    display: none;
+
+    @media (max-width: 860px) {
+      display: block;
+      flex: 0 0 70%;
+      max-width: 70%;
+      margin-left: auto;
+    }
   `,
 };
 
@@ -119,7 +125,7 @@ function Header({ navi, author, sections }) {
       setIsOpenMenu(false);
     }
   };
-  
+
   const eleMenu = useRef();
   //스크롤 여부
   const [isScroll, setIsScroll] = useState(false);
@@ -137,19 +143,13 @@ function Header({ navi, author, sections }) {
   }, []);
 
   const handleClickMenu = (event) => {
-    const changeMenu = !isOpenMenu
+    const changeMenu = !isOpenMenu;
     setIsOpenMenu(changeMenu);
   };
 
   //Like [componentDidMount + componentDidUpdate + componentWillUpdate]
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    // const current = eleMenu;
-    // if(eleMenu.current){
-    //   eleMenu.current.addEventListener("click", handleClickMenu);
-
-    //   return eleMenu.current.removeEventListener("click", handleClickMenu);
-    // }
 
     //정리가 필요한 Effects는 메모리 누수 발생을 예방하기 위해 제거!
     return () => {
@@ -172,8 +172,8 @@ function Header({ navi, author, sections }) {
           ))}
         </S.Navigation>
         <S.MenuBar>
-          <span ref={eleMenu} onClick={handleClickMenu} >
-            <GiHamburgerMenu className="bar" style={{height:"50px"}}/>
+          <span ref={eleMenu} onClick={handleClickMenu}>
+            <GiHamburgerMenu className="bar" style={{ height: "50px" }} />
           </span>
         </S.MenuBar>
       </S.Header>
@@ -182,5 +182,4 @@ function Header({ navi, author, sections }) {
 }
 
 export default Header;
-/*
- */
+

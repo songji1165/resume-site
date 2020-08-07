@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcCloseUpMode } from "react-icons/fc";
 import Box from "../styles/articleCss";
 import styled from "styled-components";
 import imgArr from "../assets";
+import { FiArrowDownCircle } from "react-icons/fi";
 
 const S = {
   IntroDiv: styled(Box.DivItem)`
@@ -63,26 +64,40 @@ const S = {
       heigth:100%;
     }
   `,
+  DownBtn: styled(FiArrowDownCircle)`
+    color: #777878;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    font-size: 2.5rem;
+    cursor: pointer;
+    animation: float 2s ease-in-out infinite;
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    &:hover {
+      animation: none;
+    }
+
+    @media (max-width: 860px) {
+     display: none;
+    }
+  `,
 };
 
 function Intro({ intro, refProp, author }) {
-  //   console.log("INTRO", intro);
+  const [isAni, setIsAni] = useState(true);
 
-  /*
-const [offset, setOffset] = useState(0);
-
-useEffect(() => {
-  const handleScroll = ()=>{
-  
-    setOffset(window.pageYOffset)
-  }
- 
-  window.addEventListener("scroll", handleScroll)
-  return () => {
-    window.removeEventListener("scroll", handleScroll)
-  }
-}, [])
-*/
   return (
     <div ref={refProp.ref}>
       <Box.Article
@@ -112,6 +127,7 @@ useEffect(() => {
               })}
             </S.IntroWrap>
           </S.IntroDiv>
+          <S.DownBtn />
         </Box.Div>
       </Box.Article>
     </div>

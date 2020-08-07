@@ -1,5 +1,4 @@
 import React from "react";
-import { FcSettings } from "react-icons/fc";
 import styled from "styled-components";
 import Box from "../styles/articleCss";
 import imgArr from "../assets";
@@ -57,48 +56,7 @@ const S = {
 };
 
 function Tech({ tech, refProp }) {
-  // const element = useRef();
-  // const [count, setCount] = useState(0);
-
-  //     const handleScroll = useCallback(([entry]) => {
-  //         // const currentTranslate = current.style.transform;
-  //         //현재 교차되고 있는지 여부 (0: 안 보임, 1: 완전 다 보임)
-  //         if (entry.isIntersecting) {
-  //             setCount(80);
-  //         }
-
-  //       },
-  //       []);
-
-  //     useEffect(() => {
-  //         /*
-  //         // count가 0이되면 끝낸다.
-  //         if (count === 80) return;
-
-  //         // intervalId를 보관한다.
-  //         const intervalId = setInterval(() => {
-  //           setCount(count + 1);
-  //         }, 0.1);
-
-  //         // 함수 종료시에 인터벌을 클리어한다.
-  //         return () => clearInterval(intervalId);
-  //         // count에 변동이 있을 때마다 한다.
-  //         */
-
-  //         let observer;
-  //         const { current } = element;
-
-  //         if (current) {
-  //            // threshold : 타겟의 교차되는 지점의 점수를 지정 => isIntersecting property 의 true, false 반환
-  //           observer = new IntersectionObserver(handleScroll, { threshold: 0.6 });
-  //           observer.observe(current);
-
-  //           return () => observer && observer.disconnect();
-  //         }
-
-  //       }, [handleScroll]);
-    function FnMakeGraphTemplate (score, skill, idx) {
-        console.log("SCORE",score)
+    const FnMakeGraphTemplate = (score, skill, idx) => {
         return(
             <S.Li key={idx}>
             <S.Graph
@@ -118,6 +76,7 @@ function Tech({ tech, refProp }) {
           </S.Li>
         )
     }
+    
   return (
     <div ref={refProp.ref}>
     <Box.Article theme="#f4f4f4">

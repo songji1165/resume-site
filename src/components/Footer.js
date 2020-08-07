@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import Box from "../styles/articleCss";
-import imgArr from "../assets";
 import styled from "styled-components";
 import useScrollFadeIn from "../hook/useScrollFadeIn";
 import Button from "../styles/buttonCss";
@@ -16,21 +15,6 @@ const S = {
     margin: 0 auto;
     padding: 20px;
     color : #fff;
-/*
-    &:before {
-      position: absolute;
-      content: "";
-      display: block;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background: url(${imgArr.EunjiEmoji1}) no-repeat center left;
-      background-size: contain;
-      opacity: 0.3;
-      z-index: -1;
-    }
-    */
   `,
   Title: styled(Box.Label)`
     text-align: left;
@@ -46,6 +30,11 @@ const S = {
     font-weight: 300;
     margin-bottom: 20px;
     text-align: left;
+
+    & .strong {
+      font-weight: 500;
+      color: #00bfff;
+    }
   `,
   Parameter: styled.div`
     width: 80%;
@@ -78,7 +67,7 @@ const S = {
     padding: 10px;
     vertical-align: top;
     width: 60%;
-    border: ${(props) => (props.isVali ? "2px solid red" : "1px solid #333")};
+    border: ${(props) => (!props.isVali ? "2px solid red" : "1px solid #333")};
     @media (max-width: 860px) {
       width: 100%;
     }
@@ -87,6 +76,8 @@ const S = {
     padding: 10px;
     vertical-align: top;
     width: 60%;
+    height: 5rem;
+    border: ${(props) => (!props.isVali ? "2px solid red" : "1px solid #333")};
     @media (max-width: 860px) {
       width: 100%;
     }
@@ -97,7 +88,6 @@ const S = {
   `,
   LinkItem: styled.a`
     margin: 0 1rem;
-    padding: 0 1rem;
     cursor: pointer;
     color: #fff;
 
@@ -105,29 +95,24 @@ const S = {
       opacity: 0.5;
     }
   `,
+  Noti: styled.p`
+    color: #eaa2a2;
+    display: ${(props) => (!props.isNotiShow ? "block" : "none")};
+  `,
 };
 
-function Footer({ contact, refProp }) {
-  const [inputName, setInputName] = useState({"name":"","mail":"","text":""});
-  const [inputMail, setInputMail] = useState("");
-  const [inputText, setInputText] = useState("");
+function Footer({ contact, author, refProp }) {
+  const [inputSend, setInputSend] = useState({ name: "", mail: "", text: "" });
   const [isValiName, setIsValiName] = useState(true);
   const [isValiMail, setIsValiMail] = useState(true);
   const [isValiText, setIsValiText] = useState(true);
+  const [isNotiShow, setIsNotiShow] = useState(true);
 
-  console.log("CONTACT", contact);
-  function sendEmail(e) {
+  const sendEmail = (e) => {
     e.preventDefault();
-    console.log("SEND", e);
     const valiInput = fnValidateForm();
-    console.log(valiInput);
-    if (!valiInput) {
-      console.log("name", isValiName);
-      console.log("mail", isValiMail);
-      console.log("text", isValiText);
-    } else {
-      alert("send");
-      return;
+
+    if (valiInput) {
       emailjs
         .sendForm(
           "songji1165",
@@ -148,33 +133,33 @@ function Footer({ contact, refProp }) {
           }
         );
     }
-  }
+  };
 
-  useEffect(()=> {
-
-  })
-
-  function fnValidateForm() {
+  const fnValidateForm = () => {
     let isValiForm = true;
-    if (inputName.length === 0) {
-      alert("이름없어");
+    if (inputSend.name.length === 0) {
       setIsValiName(false);
       isValiForm = false;
     }
-    if (inputMail.length === 0) {
+    if (inputSend.mail.length === 0) {
       setIsValiMail(false);
       isValiForm = false;
     }
-    if (inputText.length === 0) {
+    if (inputSend.text.length === 0) {
       setIsValiText(false);
       isValiForm = false;
     }
 
-    return isValiForm;
-  }
-  useEffect(() => {}, []);
+    if (isValiForm) {
+      setIsNotiShow(true);
+    } else {
+      setIsNotiShow(false);
+    }
 
-  function fnMakeLinkTemplate(item, idx) {
+    return isValiForm;
+  };
+
+  const fnMakeLinkTemplate = (item, idx) => {
     let icon;
     if (item.icon === "Github") {
       icon = (
@@ -200,7 +185,7 @@ function Footer({ contact, refProp }) {
           className="icon"
         />
       );
-    } else if (item.icon == "Email") {
+    } else if (item.icon === "Email") {
       icon = (
         <AiOutlineMail size="26" title={item.alt ? item.alt : item.title} />
       );
@@ -217,29 +202,33 @@ function Footer({ contact, refProp }) {
         {icon}
       </S.LinkItem>
     );
-  }
+  };
 
   const handleInput = (e) => {
-    console.log("name", e.target.value);
-    setInputName({[e.target.name] : e.target.value});
-    if (inputName.length > 0) {
-      // setIsValiName(true);
-    }
-  };
+    const target = e.target.name;
 
-  const handleInputMail = (e) => {
-    console.log("mail", e.target.value);
-    setInputMail(e.target.value);
-    if (inputName.length > 0) {
-      setIsValiMail(true);
-    }
-  };
+    setInputSend({ ...inputSend, [target]: e.target.value });
 
-  const handleInputText = (e) => {
-    console.log("text", e.target.value);
-    setInputText(e.target.value);
-    if (inputName.length > 0) {
-      setIsValiText(true);
+    if (e.target.value.length > 0) {
+      switch (target) {
+        case "name":
+          setIsValiName(true);
+          break;
+        case "mail":
+          setIsValiMail(true);
+          break;
+        case "text":
+          setIsValiText(true);
+          break;
+        default:
+          break;
+      }
+    }
+
+    if (isValiName && isValiMail && isValiText) {
+      setIsNotiShow(true);
+    } else {
+      setIsNotiShow(false);
     }
   };
 
@@ -251,7 +240,9 @@ function Footer({ contact, refProp }) {
             <S.contactDiv>
               <S.Title color="#fff"> CONTACT </S.Title>
               <hr />
-              <S.H2>Contact Me</S.H2>
+              <S.H2>
+                Contact '<span className="strong">{author}</span>'
+              </S.H2>
               <form onSubmit={sendEmail}>
                 <S.Parameter {...useScrollFadeIn("up", 1, 0)}>
                   <S.Label>*Name</S.Label>
@@ -260,7 +251,7 @@ function Footer({ contact, refProp }) {
                     name="name"
                     placeholder="성함을 입력해주세요."
                     id="inputbox"
-                    value={inputName.name}
+                    value={inputSend.name}
                     onChange={handleInput}
                     isVali={isValiName}
                   />
@@ -269,9 +260,9 @@ function Footer({ contact, refProp }) {
                   <S.Label>*Email</S.Label>
                   <S.Input
                     type="text"
-                    name="email"
+                    name="mail"
                     placeholder="보내시는 분의 이메일 주소를 입력해주세요."
-                    value={inputName.mail}
+                    value={inputSend.mail}
                     isVali={isValiMail}
                     onChange={handleInput}
                   />
@@ -282,16 +273,17 @@ function Footer({ contact, refProp }) {
                     type="text"
                     name="phone"
                     placeholder="보내시는 분의 연락처를 입력해주세요."
+                    isVali={true}
                   />
                 </S.Parameter>
                 <S.Parameter {...useScrollFadeIn("up", 1, 0.4)}>
                   <S.Label>*Message</S.Label>
                   <S.Textarea
-                    name="message"
+                    name="text"
                     placeholder="내용을 입력해주세요."
-                    value={inputText}
+                    value={inputSend.text}
                     isVali={isValiText}
-                    onChange={handleInputText}
+                    onChange={handleInput}
                   ></S.Textarea>
                 </S.Parameter>
 
@@ -308,6 +300,9 @@ function Footer({ contact, refProp }) {
                   />
                   <span> SEND</span>
                 </Button>
+                <S.Noti isNotiShow={isNotiShow}>
+                  <span role="img" aria-label="sad">😥</span> Name, Email, Message는 필수로 작성해주시기 바랍니다.
+                </S.Noti>
               </form>
             </S.contactDiv>
             <hr />

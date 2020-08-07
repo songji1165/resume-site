@@ -121,71 +121,30 @@
                     }
         ],
         "Projects" : [
-            {   
-                "Icon" : "👓",
-                "name": "[안경원 관리] Desktop Application",
-                "organize" : "HEBEES",
-                "start_date" : "2019-07",
-                "end_date" : "2019-06",
-                "summary" : "안경원 관리 서비스를 데스크톱 전용 어플리케이션으로 제공",
-                "experience":"",
-                "link": "",
-                "img" : "retina",
-                "Detail" : [
-                    {
-                        "keywords": [],
-                        "skills" : [ "Javascript", "HTML/CSS", "NW.js", "JQuery", "Vue.js", "GIT", "SQL", "AGGrid"],
-                        "result" : "",
-                        "architecture" : "",
-                        "problem" : "",
-                        "solution" : "",
-                        "etc" : ""
-                    }
-                ]
-            },
             {
                 "Icon" : "🛒",
                 "name": "[주문 시스템] Web/App Application",
                 "organize" : "HEBEES",
-                "start_date" : "2020-04",
-                "end_date" : "2020-04",
                 "summary" : "안경원 커머스 서비스",
-                "experience":"",
-                "link": "",
-                "img" : "order",
-                "Detail" : [
-                    {
-                        "keywords": [],
-                        "skills" : [],
-                        "result" : "",
-                        "architecture" : "",
-                        "problem" : "",
-                        "solution" : "",
-                        "etc" : ""
-                    }
-                ]
+                "link": "https://www.notion.so/songji/bd75238fd9e545fa95804e827981f155",
+                "img" : "order"
+            },
+            {   
+                "Icon" : "👓",
+                "name": "[안경원 관리] Desktop Application",
+                "organize" : "HEBEES",
+                "summary" : "안경원 관리 서비스를 데스크톱 전용 어플리케이션으로 제공",
+                "link": "https://www.notion.so/songji/4e47ded7c7a04bd1bd9adbd06712c22f",
+                "img" : "retina"
             },
             {
                 "Icon" : "⛅",
                 "name": "[Weather Wear] Web/App Application",
                 "organize" : "개인 프로젝트",
-                "start_date" : "2019-05",
-                "end_date" : "2019-05",
                 "summary" : "위치에 따른 날씨, 기온 및 기온별 옷차림 정보를 제공",
                 "experience":"",
-                "link": "",
-                "img" : "WW",
-                "Detail" : [
-                    {
-                        "keywords": [],
-                        "skills" : ["Javascript", "Vues.js", "AXIOS", "OPEN API(Wheather API)", "HTML/CSS", "GIT", "Github Pages", "JSON"],
-                        "result" : "",
-                        "architecture" : "",
-                        "problem" : "",
-                        "solution" : "",
-                        "etc" : ""
-                    }
-                ]
+                "link": "https://www.notion.so/songji/Weather-Wear-4d553c33e6614a7bb30380016cb0b11b",
+                "img" : "WW"
             }
         ]
     
