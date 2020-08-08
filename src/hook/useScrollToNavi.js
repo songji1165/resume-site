@@ -23,11 +23,8 @@ const useScrollTo = () => {
       ref : createRef()
     }];
 
-  // const element = createRef(); //Nav Item
-
   // Navi move To Ref 
   const handleNavigate = (section)=>{
-    console.log("!",section)
     let el = section.ref.current;
   
       window.scrollTo({
