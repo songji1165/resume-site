@@ -111,9 +111,8 @@ const S = {
   `,
 };
 
-function Header({ navi, author, sections }) {
+const Header = ({ navi, author, sections }) => {
   const handleNavigate = (section) => {
-    console.log("SECTION?!>!>!>!>", section);
     if (section) {
       let el = section.ref.current;
 
@@ -157,7 +156,6 @@ function Header({ navi, author, sections }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [handleScroll]);
-  console.log("SECTION?", sections);
   return (
     <S.Wrapper isScroll={isScroll}>
       <S.Header isScroll={isScroll}>
@@ -180,6 +178,6 @@ function Header({ navi, author, sections }) {
       </S.Header>
     </S.Wrapper>
   );
-}
+};
 
 export default Header;

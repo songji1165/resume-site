@@ -85,9 +85,8 @@ const S = {
   `,
 };
 
-function Info({ careers, refProp }) {
+const Info = ({ careers, refProp }) => {
   const element = useRef();
-  //   console.log("****element", element);
 
   //useCallback : 이미 저장되어있는 data를 다시 불러옴 (메모리 낭지 방지)
   const onScroll = useCallback(([entry]) => {

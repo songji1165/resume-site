@@ -90,14 +90,14 @@ const S = {
   `,
 };
 
-function Project({ projects, refProp }) {
+const Project = ({ projects, refProp }) => {
   const FnMakeProjectTamplete = (item, idx) => {
     const delaySec = idx * 0.1;
     const scrollFade = useScrollFadeIn("left", 1, delaySec);
 
     return (
       <S.Project key={idx} {...scrollFade}>
-        <a href={item.link} target="_blank"  rel="noopener noreferrer">
+        <a href={item.link} target="_blank" rel="noopener noreferrer">
           <S.ImgDiv className="moreWrap">
             <S.IMG src={imgArr[item.img]} />
           </S.ImgDiv>
@@ -129,6 +129,6 @@ function Project({ projects, refProp }) {
       </Box.Article>
     </div>
   );
-}
+};
 
 export default Project;

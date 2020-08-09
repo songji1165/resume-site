@@ -96,7 +96,7 @@ const S = {
   `,
 };
 
-function Intro({ intro, refProp, author, downScroll }) {
+const Intro = ({ intro, refProp, author, downScroll }) => {
   const handleNavigate = (section) => {
     if (section) {
       let el = section.ref.current;
@@ -145,6 +145,6 @@ function Intro({ intro, refProp, author, downScroll }) {
       </Box.Article>
     </div>
   );
-}
+};
 
 export default Intro;

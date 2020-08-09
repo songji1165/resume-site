@@ -7,7 +7,7 @@ import Tech from "../components/Tech";
 import Project from "../components/Project";
 import Footer from "../components/Footer";
 
-function Home({ person }) {
+const Home = ({ person }) => {
  
   const scrollTo = [
     {

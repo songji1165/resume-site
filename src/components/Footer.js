@@ -6,7 +6,6 @@ import useScrollFadeIn from "../hook/useScrollFadeIn";
 import Button from "../styles/buttonCss";
 import { AiOutlineMail, AiOutlineIdcard } from "react-icons/ai";
 import { FaBlogger, FaGithub } from "react-icons/fa";
-import { GiConsoleController } from "react-icons/gi";
 
 const S = {
   contactDiv: styled.div`
@@ -102,7 +101,7 @@ const S = {
   `,
 };
 
-function Footer({ contact, author, refProp }) {
+const Footer = ({ contact, author, refProp }) => {
   const [inputSend, setInputSend] = useState({
     name: "",
     mail: "",
@@ -114,23 +113,12 @@ function Footer({ contact, author, refProp }) {
   const [isValiText, setIsValiText] = useState(true);
   const [isNotiShow, setIsNotiShow] = useState(true);
 
-  console.log(process.env);
-
   const sendEmail = (e) => {
     e.preventDefault();
     const valiInput = fnValidateForm();
-
     const EMAILJS = process.env;
-    console.log(EMAILJS.REACT_APP_SERVICE_ID, EMAILJS.REACT_APP_TEMPLATE_NO);
-    // console.log(process.env.REACT_APP_TEMPLATE_NO);
-    if (valiInput) {
-      const template_params = {
-        email: inputSend.mail,
-        name: inputSend.name,
-        phone: inputSend.phone,
-        message: inputSend.text,
-      };
 
+    if (valiInput) {
       emailjs
         .sendForm(
           EMAILJS.REACT_APP_SERVICE_ID,
@@ -146,7 +134,9 @@ function Footer({ contact, author, refProp }) {
             );
           },
           (error) => {
-            alert("메일이 전송에 실패하였습니다. songji1165@gmail.com으로 전송바랍니다.");
+            alert(
+              "메일이 전송에 실패하였습니다. songji1165@gmail.com으로 전송바랍니다."
+            );
             console.log(error.text);
           }
         );
@@ -343,6 +333,6 @@ function Footer({ contact, author, refProp }) {
       </Box.Article>
     </div>
   );
-}
+};
 
 export default Footer;
