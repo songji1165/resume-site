@@ -6,6 +6,7 @@ import useScrollFadeIn from "../hook/useScrollFadeIn";
 import Button from "../styles/buttonCss";
 import { AiOutlineMail, AiOutlineIdcard } from "react-icons/ai";
 import { FaBlogger, FaGithub } from "react-icons/fa";
+import { GiConsoleController } from "react-icons/gi";
 
 const S = {
   contactDiv: styled.div`
@@ -14,7 +15,7 @@ const S = {
     position: relative;
     margin: 0 auto;
     padding: 20px;
-    color : #fff;
+    color: #fff;
   `,
   Title: styled(Box.Label)`
     text-align: left;
@@ -102,23 +103,40 @@ const S = {
 };
 
 function Footer({ contact, author, refProp }) {
-  const [inputSend, setInputSend] = useState({ name: "", mail: "", text: "" });
+  const [inputSend, setInputSend] = useState({
+    name: "",
+    mail: "",
+    text: "",
+    phone: "",
+  });
   const [isValiName, setIsValiName] = useState(true);
   const [isValiMail, setIsValiMail] = useState(true);
   const [isValiText, setIsValiText] = useState(true);
   const [isNotiShow, setIsNotiShow] = useState(true);
 
+  console.log(process.env);
+
   const sendEmail = (e) => {
     e.preventDefault();
     const valiInput = fnValidateForm();
 
+    const EMAILJS = process.env;
+    console.log(EMAILJS.REACT_APP_SERVICE_ID, EMAILJS.REACT_APP_TEMPLATE_NO);
+    // console.log(process.env.REACT_APP_TEMPLATE_NO);
     if (valiInput) {
+      const template_params = {
+        email: inputSend.mail,
+        name: inputSend.name,
+        phone: inputSend.phone,
+        message: inputSend.text,
+      };
+
       emailjs
         .sendForm(
-          "songji1165",
-          "template_3CVEa769",
+          EMAILJS.REACT_APP_SERVICE_ID,
+          EMAILJS.REACT_APP_TEMPLATE_NO,
           e.target,
-          "user_qXqA2Wly9lGHUIxL9Dv8h"
+          EMAILJS.REACT_APP_USER_ID
         )
         .then(
           (result) => {
@@ -128,8 +146,8 @@ function Footer({ contact, author, refProp }) {
             );
           },
           (error) => {
-            console.err(error.text);
-            alert("메일이 전송에 실패하였습니다. 다시 시도해주세요.");
+            alert("메일이 전송에 실패하였습니다. songji1165@gmail.com으로 전송바랍니다.");
+            console.log(error.text);
           }
         );
     }
@@ -274,6 +292,8 @@ function Footer({ contact, author, refProp }) {
                     name="phone"
                     placeholder="보내시는 분의 연락처를 입력해주세요."
                     isVali={true}
+                    value={inputSend.phone}
+                    onChange={handleInput}
                   />
                 </S.Parameter>
                 <S.Parameter {...useScrollFadeIn("up", 1, 0.4)}>
@@ -301,7 +321,10 @@ function Footer({ contact, author, refProp }) {
                   <span> SEND</span>
                 </Button>
                 <S.Noti isNotiShow={isNotiShow}>
-                  <span role="img" aria-label="sad">😥</span> Name, Email, Message는 필수로 작성해주시기 바랍니다.
+                  <span role="img" aria-label="sad">
+                    😥
+                  </span>{" "}
+                  Name, Email, Message는 필수로 작성해주시기 바랍니다.
                 </S.Noti>
               </form>
             </S.contactDiv>

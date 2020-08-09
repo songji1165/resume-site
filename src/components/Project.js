@@ -97,7 +97,7 @@ function Project({ projects, refProp }) {
 
     return (
       <S.Project key={idx} {...scrollFade}>
-        <a href={item.link} target="_blank">
+        <a href={item.link} target="_blank"  rel="noopener noreferrer">
           <S.ImgDiv className="moreWrap">
             <S.IMG src={imgArr[item.img]} />
           </S.ImgDiv>

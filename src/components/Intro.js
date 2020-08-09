@@ -1,4 +1,4 @@
-import React, { useState, createRef } from "react";
+import React from "react";
 import { FcCloseUpMode } from "react-icons/fc";
 import Box from "../styles/articleCss";
 import styled from "styled-components";
@@ -65,7 +65,7 @@ const S = {
     }
   `,
   DownBtn: styled.a`
-  display:block;
+    display: block;
     color: #777878;
     position: absolute;
     bottom: 5%;
@@ -97,10 +97,7 @@ const S = {
 };
 
 function Intro({ intro, refProp, author, downScroll }) {
-  const [isAni, setIsAni] = useState(true);
-
   const handleNavigate = (section) => {
-    console.log("ARROWSECTION",section);
     if (section) {
       let el = section.ref.current;
 
@@ -142,8 +139,8 @@ function Intro({ intro, refProp, author, downScroll }) {
             </S.IntroWrap>
           </S.IntroDiv>
           <S.DownBtn onClick={() => handleNavigate(downScroll)}>
-            <FiArrowDownCircle/> 
-            </S.DownBtn> 
+            <FiArrowDownCircle />
+          </S.DownBtn>
         </Box.Div>
       </Box.Article>
     </div>

@@ -113,17 +113,17 @@ const S = {
 
 function Header({ navi, author, sections }) {
   const handleNavigate = (section) => {
-    console.log("SECTION?!>!>!>!>",section)
+    console.log("SECTION?!>!>!>!>", section);
     if (section) {
       let el = section.ref.current;
+
+      setIsOpenMenu(false);
 
       window.scrollTo({
         behavior: "smooth",
         left: 0,
         top: el.offsetTop,
       });
-
-      setIsOpenMenu(false);
     }
   };
 
@@ -157,13 +157,12 @@ function Header({ navi, author, sections }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [handleScroll]);
-console.log("SECTION?",sections)
+  console.log("SECTION?", sections);
   return (
     <S.Wrapper isScroll={isScroll}>
       <S.Header isScroll={isScroll}>
         <S.Navigation isOpenMenu={isOpenMenu}>
           {sections.map((item, idx) => (
-            
             <S.NavigationItem
               key={idx}
               isScroll={isScroll}
@@ -184,4 +183,3 @@ console.log("SECTION?",sections)
 }
 
 export default Header;
-

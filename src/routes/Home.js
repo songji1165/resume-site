@@ -8,7 +8,7 @@ import Project from "../components/Project";
 import Footer from "../components/Footer";
 
 function Home({ person }) {
-  console.log(process.env.REACT_APP_SERVICE_ID);
+ 
   const scrollTo = [
     {
       name: "HOME",
@@ -43,7 +43,7 @@ function Home({ person }) {
         intro={person.Intro}
         refProp={scrollTo[0]}
         author={person.Author}
-        downScroll={scrollTo[1]}
+        downScroll={scrollTo[3]}
       ></Intro>
       <Tech tech={person.Tech} refProp={scrollTo[1]}></Tech>
       <Career careers={person.Careers} refProp={scrollTo[2]}></Career>

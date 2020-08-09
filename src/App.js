@@ -4,9 +4,6 @@ import Person from "./data/PersonalData.json";
 import ResetStyle from "./styles/resetCss";
 
 function App() {
- 
-
-  console.log("App", process.env.REACT_APP_SERVICE_ID);
 
   return (
     <>
