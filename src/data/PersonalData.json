@@ -28,65 +28,85 @@
     { "icon": "Phone", "title": "Phone", "link": "", "alt": "" }
   ],
   "Intro": [
-    "학습한 것에 대해 정리하는 것을 좋아하며, 이를 응용할 줄 아는 프론트엔드 개발자 송은지입니다.",
-    "개발에 관해 소통하는 것을 좋아하는 프론트엔드 개발자 송은지입니다.",
-    "적응력이 빠른 프론트엔드 개발자 송은지입니다."
+    "기획의도를 정확히 알고, 사용자 입장에서 더 나은 서비스가 제공될 수 있도록, 끊임없이 고민하고 발전하는 프론트엔드 개발자 송은지입니다.",
+    "스터디를 통해 학습한 것을 공유하고 토론하는 것을 좋아합니다.",
+    "재사용 가능한 모듈 개발에 관심이 많습니다."
   ],
   "Tech": [
     {
       "Lang": "Javascript",
       "score": "80",
-      "summary": "ES6에 대해 이해하고, 활용하고 있으며, 동기와 비동기, prototype 및 객체지향인 점을 이용해 객체를 활용해서 만들 수 있습니다."
+      "summary": [
+        "ES6에 대해 이해하고, 활용할 줄 압니다.",
+        "동기와 비동기, prototype에 대해 이해하고 응용할 줄 압니다.",
+        "Vanilla Javascript로 DOM API를 다루는데 능숙합니다."
+      ]
     },
     {
-      "Lang": "HTML5",
+      "Lang": "HTML5CSS3",
       "score": "85",
-      "summary": "시맨틱태그와 SEO에 대해 이해하고 활용하고 있습니다."
-    },
-    {
-      "Lang": "CSS3",
-      "score": "85",
-      "summary": "반응형 및 애니메이션 활용까지 표현 할 수 있습니다."
+      "summary": [
+        "HTML5의 구조적 시맨틱 태그를 이해하고 있습니다.",
+        "크로스브라우징에 대해 이해하고, 지원할 줄 압니다.",
+        "CSS의 inline과 Block의 차이를 알고, 스타일을 다루는데 능숙합니다.",
+        "grid, flexbox를 활용하여 효과적으로 화면을 구성할 수 있습니다."
+      ]
     },
     {
       "Lang": "Vue",
       "score": "65",
-      "summary": ""
+      "summary": [
+          "Vue의 라이프사이클을 이해하고 있습니다.",
+          "Component 단위 작업을 통해, 재사용성과 유지보수성을 높일 수 있습니다."
+        ]
     },
     {
       "Lang": "React",
       "score": "50",
-      "summary": ""
+      "summary": [
+          "React의 라이프사이클을 이해하고 있습니다.",
+          "Class Component와 Function Component의 차이를 알고 활용할 줄 압니다.",
+          "Class Component의 상태관리를 Function Component에서 hook으로 변경할 줄 알고, 이를 활용할 수 있습니다.",
+          "Custom hook 개발에 관심이 많고, 활용하고 있습니다."
+        ]
     },
     {
       "Lang": "Jquery",
       "score": "80",
-      "summary": ""
+      "summary": [
+          "Jquery를 통한 DOM 조작에 능숙하고, 서비스하고자하는 웹 구현에 능숙합니다."
+        ]
     },
     {
       "Lang": "PHP",
-      "score": "55",
-      "summary": "PHP 라이브러리(CI)를 다를 줄 알고, PHP 코드를 해석하고 응용할 수 있습니다."
+      "score": "50",
+      "summary": [
+          "PHP 라이브러리(CI)를 구조를 이해하고 다를 줄 압니다.", 
+          "PHP 문법를 해석하고, 응용할 수 있습니다."
+        ]
     },
     {
       "Lang": "Node",
-      "score": "45",
-      "summary": "express를 통해 서버를 띄울 수 있습니다."
+      "score": "40",
+      "summary": ["Express를 통해 서버를 띄울 수 있습니다."]
     },
     {
       "Lang": "SQL",
-      "score": "50",
-      "summary": "select, insert, delete, update에 대해 이해하고, 이를 통해 data를 찾을 수 있습니다."
+      "score": "30",
+      "summary": ["select, insert, delete, update에 대해 이해하고, 이를 통해 data를 찾을 수 있습니다."]
     },
     {
       "Lang": "Git",
       "score": "90",
-      "summary": "Git의 개념 및 흐름에 대해 이해하고, 사용하고 있습니다. (feat/origin 저장소, commit, push, pull, branch ... )"
+      "summary": [
+          "Git의 개념 및 흐름에 대해 이해하고, 능숙하게 다룰 줄 압니다. (feat/origin 저장소, commit, push, pull, branch ... )",
+        "Git Flow를 이용해 버전관리를 할 줄 압니다."
+        ]
     },
     {
       "Lang": "MarkDown",
       "score": "90",
-      "summary": "MarkDown을 통해 표현하고자 하는 것을 막힘없이 만들 수 있습니다."
+      "summary": ["MarkDown을 통해 표현하고자 하는 것을 막힘없이 만들 수 있습니다."]
     }
   ],
   "Careers": [

@@ -120,14 +120,14 @@ const Intro = ({ intro, refProp, author, downScroll }) => {
               <S.ImgSpan>
                 <img
                   className="img"
-                  src={imgArr.EunjiEmoji2}
+                  src={imgArr.EunjiEmoji1}
                   alt="AuthorIcon"
                 />
               </S.ImgSpan>
             </S.IntroWrap>
             <S.IntroWrap>
               <S.H1>
-                Hi. I'm <span className="strong">{author}</span>
+                Hello. I'm <span className="strong">{author}</span>
               </S.H1>
               {intro.map((data, idx) => {
                 return (

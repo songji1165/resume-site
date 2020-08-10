@@ -10,6 +10,7 @@ import PHP from './img/PHP.png';
 import SQL from './img/SQL.png';
 import Git from './img/Git.png';
 import MarkDown from './img/MarkDown.png';
+import HTML5CSS3 from './img/html5css3.png';
 
 //UserEmoji
 import EunjiEmoji1 from './img/eunji1.png';
@@ -33,6 +34,7 @@ const imgArr = {
     SQL,
     Git,
     MarkDown,
+    HTML5CSS3,
     EunjiEmoji1,
     EunjiEmoji2,
     background,
