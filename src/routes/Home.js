@@ -8,7 +8,6 @@ import Project from "../components/Project";
 import Footer from "../components/Footer";
 
 const Home = ({ person }) => {
- 
   const scrollTo = [
     {
       name: "HOME",
@@ -43,7 +42,7 @@ const Home = ({ person }) => {
         intro={person.Intro}
         refProp={scrollTo[0]}
         author={person.Author}
-        downScroll={scrollTo[3]}
+        downScroll={scrollTo[1]}
       ></Intro>
       <Tech tech={person.Tech} refProp={scrollTo[1]}></Tech>
       <Career careers={person.Careers} refProp={scrollTo[2]}></Career>
@@ -55,6 +54,6 @@ const Home = ({ person }) => {
       ></Footer>
     </div>
   );
-}
+};
 
 export default Home;
