@@ -119,11 +119,12 @@
         {
           "project": "[안경원 관리] Desktop Application",
           "summary": [
-            "신규 페이지 개발, 버전 관리 및 배포",
-            "VAN 서비스 결제 시스템 UI 개발 및 통신 모듈 구현",
+            "신규 페이지 개발",
+            "VAN 서비스(현장 결제 시스템) UI 개발 및 통신 모듈 구현",
             "모달의 모듈화",
             "프로그램 코드사이닝 작업",
-            "Electron과 Vue.js 프로젝트의 모달창 import 작업"
+            "Electron과 Vue.js 프로젝트의 모달창 import 작업",
+            "Git Flow를 이용한 버전관리 및 배포"
           ],
           "skills": [
             "NW.js",
