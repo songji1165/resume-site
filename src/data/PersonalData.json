@@ -47,7 +47,6 @@
       "score": "85",
       "summary": [
         "HTML5의 구조적 시맨틱 태그를 이해하고 있습니다.",
-        "크로스브라우징에 대해 이해하고, 지원할 줄 압니다.",
         "CSS의 inline과 Block의 차이를 알고, 스타일을 다루는데 능숙합니다.",
         "grid, flexbox를 활용하여 효과적으로 화면을 구성할 수 있습니다."
       ]
@@ -65,7 +64,6 @@
       "score": "50",
       "summary": [
           "React의 라이프사이클을 이해하고 있습니다.",
-          "Class Component와 Function Component의 차이를 알고 활용할 줄 압니다.",
           "Class Component의 상태관리를 Function Component에서 hook으로 변경할 줄 알고, 이를 활용할 수 있습니다.",
           "Custom hook 개발에 관심이 많고, 활용하고 있습니다."
         ]
