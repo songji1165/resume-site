@@ -28,7 +28,7 @@
     { "icon": "Phone", "title": "Phone", "link": "", "alt": "" }
   ],
   "Intro": [
-    "기획의도를 정확히 알고, 사용자 입장에서 더 나은 서비스가 제공될 수 있도록, 끊임없이 고민하고 발전하는 프론트엔드 개발자 송은지입니다.",
+    "프로젝트의 개발 흐름을 정확히 이해하고, 사용자 경험에 있어 더 나은 서비스가 제공될 수 있도록, 끊임없이 고민하고 발전하는 프론트엔드 개발자 송은지입니다.",
     "스터디를 통해 학습한 것을 공유하고 토론하는 것을 좋아합니다.",
     "재사용 가능한 모듈 개발에 관심이 많습니다."
   ],
@@ -78,20 +78,12 @@
     {
       "Lang": "PHP",
       "score": "50",
-      "summary": [
-          "PHP 라이브러리(CI)를 구조를 이해하고 다를 줄 압니다.", 
-          "PHP 문법를 해석하고, 응용할 수 있습니다."
-        ]
+      "summary": [ "PHP 라이브러리(CI)의 MVC 패턴을 이해하고 다를 줄 압니다."]
     },
     {
       "Lang": "Node",
       "score": "40",
       "summary": ["Express를 통해 서버를 띄울 수 있습니다."]
-    },
-    {
-      "Lang": "SQL",
-      "score": "30",
-      "summary": ["select, insert, delete, update에 대해 이해하고, 이를 통해 data를 찾을 수 있습니다."]
     },
     {
       "Lang": "Git",
@@ -196,11 +188,18 @@
       "img": "retina"
     },
     {
+      "Icon": "🙋‍♀️",
+      "name": "[My Portfolio] Web/App Application",
+      "organize": "개인 프로젝트",
+      "summary": "개인 포트폴리오용 웹사이트 제작",
+      "link": "https://www.notion.so/songji/My-Portfolio-SPA-2f26fceaf97d401fa72ff3a4b44dcf4b",
+      "img": "MyPortfolio"
+    },
+    {
       "Icon": "⛅",
       "name": "[Weather Wear] Web/App Application",
       "organize": "개인 프로젝트",
       "summary": "위치에 따른 날씨, 기온 및 기온별 옷차림 정보를 제공",
-      "experience": "",
       "link": "https://www.notion.so/songji/Weather-Wear-4d553c33e6614a7bb30380016cb0b11b",
       "img": "WW"
     }

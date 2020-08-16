@@ -20,8 +20,8 @@ const useScrollFadeIn = (direction = 'up', duration = 1, delay = 0) => {
       };
 
     const handleScroll = useCallback(([entry]) => {
+                                  //entry : 현재 target된 DOM element 객체
         const { current } = element;
-        // const currentTranslate = current.style.transform;
         //현재 교차되고 있는지 여부 (0: 안 보임, 1: 완전 다 보임)
         if (entry.isIntersecting) {
             current.style.transitionProperty = 'all';
