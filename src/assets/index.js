@@ -21,6 +21,7 @@ import background from './img/background.jpg';
 import retina from './img/retina.png';
 import WW from './img/WW.gif';
 import order from './img/retinaOrder.png';
+import eunjiPortfolio from './img/eunjiPortfolio.gif';
 
 const imgArr = {
     Javascript,
@@ -40,7 +41,8 @@ const imgArr = {
     background,
     retina,
     WW,
-    order
+    order,
+    eunjiPortfolio
 };
 
 export default imgArr;
